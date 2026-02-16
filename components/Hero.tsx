@@ -53,7 +53,7 @@ const Hero: React.FC = () => {
               <Phone size={14} className="text-[#0077FF]" />
               <span className="text-[11px] font-black uppercase tracking-widest text-slate-500">Call Us</span>
             </div>
-            <span className="text-xl font-black tracking-tighter text-slate-900">07947851676</span>
+            <span className="text-xl font-black tracking-tighter text-slate-900">0794785167</span>
           </div>
         </motion.div>
       </div>

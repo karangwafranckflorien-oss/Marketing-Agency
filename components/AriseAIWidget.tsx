@@ -21,19 +21,28 @@ const AriseAIWidget: React.FC = () => {
     setLoading(true);
 
     try {
+      // Guard against missing API_KEY which causes common deployment crashes
+      if (!process.env.API_KEY) {
+        throw new Error("API_KEY_MISSING");
+      }
+
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       const response = await ai.models.generateContent({
         model: 'gemini-3-flash-preview',
         contents: userMessage,
         config: {
-          systemInstruction: "You are AriseAI, the elite marketing assistant for ARISE Marketing Agency serving clients CROSS AFRICA. Our slogan: 'Everyone wants to make Digital MARKETING.' Sections we serve: Restaurants, Hotels, Schools, Companies, and NGOs. Pricing: Single Image 1,000 RWF (~$0.69 USD), 8s Video 5,000 RWF (~$3.44 USD), 8s to 1min 15,000 RWF (~$10.32 USD), 1min+ 12,500 RWF (~$8.65 USD), and Monthly Excellence at 150,000 RWF (~$103.20 USD). Conversion rate used: 1 RWF = 0.000688 USD. Encourage users to call 07947851676 or email arisemarketingagency@gmail.com for placement. Always be ambitious, polite, and represent premium African quality.",
+          systemInstruction: "You are AriseAI, the elite marketing assistant for ARISE Marketing Agency serving clients CROSS AFRICA. Our slogan: 'Everyone wants to make Digital MARKETING.' Sections we serve: Restaurants, Hotels, Schools, Companies, and NGOs. Pricing: Single Image 1,000 RWF, 8s Video 5,000 RWF, 8s to 1min 15,000 RWF, and Monthly Excellence at 150,000 RWF. Conversion standard used: 1 RWF ≈ 0.000688 USD. Encourage users to call 0794785167 or email arisemarketingagency@gmail.com for placement. Always be ambitious, polite, and represent premium African quality.",
         },
       });
 
       const aiText = response.text || "I'm ready to help your brand grow across Africa!";
       setMessages(prev => [...prev, { role: 'ai', text: aiText }]);
-    } catch (error) {
-      setMessages(prev => [...prev, { role: 'ai', text: "Technical hitch! Please call us at 07947851676 for elite service." }]);
+    } catch (error: any) {
+      const errorMessage = error.message === "API_KEY_MISSING" 
+        ? "My AI engine is currently disconnected. Please ensure the API_KEY environment variable is set in your deployment dashboard."
+        : "I'm having a small technical hitch! Please reach us directly at 0794785167 for elite service.";
+      
+      setMessages(prev => [...prev, { role: 'ai', text: errorMessage }]);
     } finally {
       setLoading(false);
     }

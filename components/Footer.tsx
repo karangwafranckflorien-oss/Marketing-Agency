@@ -96,7 +96,7 @@ const Footer: React.FC = () => {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Call Support</span>
-                  <span className="text-sm font-black text-slate-900">07947851676</span>
+                  <span className="text-sm font-black text-slate-900">0794785167</span>
                 </div>
               </div>
             </div>
