@@ -8,7 +8,7 @@ const AriseAIWidget: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<{ role: 'user' | 'ai', text: string }[]>([
-    { role: 'ai', text: "Welcome to Arise Marketing! We are now serving clients Cross Africa. How can I help your business excel with elite AI marketing today?" }
+    { role: 'ai', text: "Welcome to ARISE AI MARKETING AGENCY! We are now serving clients Cross Africa. How can I help your business excel with elite AI marketing today?" }
   ]);
   const [loading, setLoading] = useState(false);
 
@@ -21,7 +21,6 @@ const AriseAIWidget: React.FC = () => {
     setLoading(true);
 
     try {
-      // Guard against missing API_KEY which causes common deployment crashes
       if (!process.env.API_KEY) {
         throw new Error("API_KEY_MISSING");
       }
@@ -31,7 +30,7 @@ const AriseAIWidget: React.FC = () => {
         model: 'gemini-3-flash-preview',
         contents: userMessage,
         config: {
-          systemInstruction: "You are AriseAI, the elite marketing assistant for ARISE Marketing Agency serving clients CROSS AFRICA. Our slogan: 'Everyone wants to make Digital MARKETING.' Sections we serve: Restaurants, Hotels, Schools, Companies, and NGOs. Pricing: Single Image 1,000 RWF, 8s Video 5,000 RWF, 8s to 1min 15,000 RWF, and Monthly Excellence at 150,000 RWF. Conversion standard used: 1 RWF ≈ 0.000688 USD. Encourage users to call 0794785167 or email arisemarketingagency@gmail.com for placement. Always be ambitious, polite, and represent premium African quality.",
+          systemInstruction: "You are AriseAI, the elite marketing assistant for ARISE AI MARKETING AGENCY serving clients CROSS AFRICA. Our slogan: 'Everyone wants to make Digital MARKETING.' ARISE AI MARKETING AGENCY IS UNDER Arise Digital Solutions Ltd. - Rwanda. Our official website is www.ariseaiagency.com. Sections we serve: Restaurants, Hotels, Schools, Companies, and NGOs. Pricing: Single Image 1,000 RWF, 8s Video 5,000 RWF, 8s to 1min 15,000 RWF, and Monthly Excellence at 150,000 RWF. Conversion standard used: 1 RWF ≈ 0.000688 USD. Encourage users to call +250 795 590 127 or email contact@ariseaiagency.com for placement. Always be ambitious, polite, and represent premium African quality.",
         },
       });
 
@@ -40,7 +39,7 @@ const AriseAIWidget: React.FC = () => {
     } catch (error: any) {
       const errorMessage = error.message === "API_KEY_MISSING" 
         ? "My AI engine is currently disconnected. Please ensure the API_KEY environment variable is set in your deployment dashboard."
-        : "I'm having a small technical hitch! Please reach us directly at 0794785167 for elite service.";
+        : "I'm having a small technical hitch! Please reach us directly at +250 795 590 127 for elite service.";
       
       setMessages(prev => [...prev, { role: 'ai', text: errorMessage }]);
     } finally {

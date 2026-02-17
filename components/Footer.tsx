@@ -1,19 +1,9 @@
 
 import React from 'react';
-import { Phone, Mail, Instagram, MessageCircle, ChevronRight } from 'lucide-react';
+import { Phone, Mail, Instagram, MessageCircle, ChevronRight, Globe } from 'lucide-react';
 
-const Logo: React.FC<{ className?: string }> = ({ className }) => (
-  <svg viewBox="0 0 100 100" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M50 5L95 85H75L50 40L25 85H5L50 5Z" fill="url(#blueGradFooter)" />
-    <path d="M50 45L70 85H50L40 65L50 45Z" fill="#FF7F00" />
-    <defs>
-      <linearGradient id="blueGradFooter" x1="5" y1="5" x2="95" y2="85" gradientUnits="userSpaceOnUse">
-        <stop stopColor="#003366" />
-        <stop offset="1" stopColor="#0077FF" />
-      </linearGradient>
-    </defs>
-  </svg>
-);
+// EDIT THIS ADDRESS TO UPLOAD YOUR LOGO
+const LOGO_URL = "https://i.imgur.com/lYz6Y6B.png"; 
 
 const TikTokIcon = ({ size = 20, className = "" }) => (
   <svg 
@@ -50,10 +40,16 @@ const Footer: React.FC = () => {
       
       <div className="container mx-auto px-6">
         <div className="flex flex-col items-center mb-16">
-          <Logo className="w-20 h-20 drop-shadow-2xl mb-6" />
+          <div className="w-40 h-40 mb-6 flex items-center justify-center overflow-hidden">
+             {LOGO_URL ? (
+                <img src={LOGO_URL} alt="Logo" className="w-full h-full object-contain drop-shadow-2xl" />
+             ) : (
+                <div className="w-full h-full bg-slate-50 rounded-2xl border-2 border-dashed border-slate-200 flex items-center justify-center text-[10px] font-black text-slate-300 uppercase text-center p-2">Upload Logo Here</div>
+             )}
+          </div>
           <div className="flex flex-col items-center">
-            <span className="text-4xl font-black tracking-[-0.05em] text-slate-900 uppercase leading-none">Arise <span className="text-[#0077FF]">AI</span></span>
-            <span className="text-[10px] font-bold tracking-[0.6em] text-[#FF7F00] uppercase mt-2 border-t border-orange-50 pt-2">Marketing Agency</span>
+            <span className="text-3xl md:text-4xl font-black tracking-[-0.05em] text-slate-900 uppercase leading-none">Arise AI <span className="text-[#0077FF]">Marketing</span></span>
+            <span className="text-[10px] font-bold tracking-[0.6em] text-[#FF7F00] uppercase mt-2 border-t border-orange-50 pt-2">Agency</span>
           </div>
         </div>
 
@@ -81,13 +77,13 @@ const Footer: React.FC = () => {
           <div className="flex flex-col items-center md:items-start">
             <h4 className="text-[#FF7F00] font-black uppercase tracking-[0.4em] text-[11px] mb-8">Direct Contact</h4>
             <div className="space-y-6">
-              <a href="mailto:arisemarketingagency@gmail.com" className="flex items-center space-x-4 group justify-center md:justify-start">
+              <a href="mailto:contact@ariseaiagency.com" className="flex items-center space-x-4 group justify-center md:justify-start">
                 <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center group-hover:bg-[#0077FF] transition-all duration-300 border border-slate-100 shadow-sm">
                   <Mail size={18} className="text-slate-600 group-hover:text-white" />
                 </div>
                 <div className="flex flex-col">
                   <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Direct Email</span>
-                  <span className="text-xs font-black text-slate-900">arisemarketingagency@gmail.com</span>
+                  <span className="text-xs font-black text-slate-900">contact@ariseaiagency.com</span>
                 </div>
               </a>
               <div className="flex items-center space-x-4 justify-center md:justify-start">
@@ -96,9 +92,18 @@ const Footer: React.FC = () => {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Call Support</span>
-                  <span className="text-sm font-black text-slate-900">0794785167</span>
+                  <span className="text-sm font-black text-slate-900">+250 795 590 127</span>
                 </div>
               </div>
+              <a href="https://www.ariseaiagency.com/" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-4 group justify-center md:justify-start">
+                <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center border border-slate-100 shadow-sm group-hover:bg-[#FF7F00] transition-all">
+                  <Globe size={18} className="text-slate-600 group-hover:text-white" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Official Website</span>
+                  <span className="text-sm font-black text-slate-900">www.ariseaiagency.com</span>
+                </div>
+              </a>
             </div>
           </div>
 
@@ -107,7 +112,7 @@ const Footer: React.FC = () => {
             <h4 className="text-[#FF7F00] font-black uppercase tracking-[0.4em] text-[11px] mb-8">Follow Our Growth</h4>
             <div className="flex space-x-4">
               <a 
-                href="https://wa.me/250794785167" 
+                href="https://wa.me/250795590127" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-12 h-12 rounded-2xl bg-white border border-slate-200 flex items-center justify-center hover:shadow-xl hover:border-[#25D366] transition-all group shadow-sm"
@@ -131,8 +136,9 @@ const Footer: React.FC = () => {
                 <TikTokIcon size={20} className="text-slate-700 group-hover:text-black" />
               </a>
             </div>
-            <p className="mt-8 text-[10px] font-bold text-slate-400 uppercase tracking-widest text-center md:text-left">
-              Serving visionaries <br /> across the African continent.
+            <p className="mt-8 text-[10px] font-bold text-slate-400 uppercase tracking-widest text-center md:text-left leading-relaxed">
+              ARISE AI MARKETING AGENCY IS UNDER <br />
+              <span className="text-slate-900 font-black">ARISE DIGITAL SOLUTIONS LTD. - RWANDA</span>
             </p>
           </div>
         </div>

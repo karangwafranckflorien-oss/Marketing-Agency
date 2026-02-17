@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
           className="inline-flex items-center space-x-2 px-6 py-2 rounded-full border border-slate-100 bg-white/50 backdrop-blur-md shadow-sm mb-10"
         >
           <Sparkles size={16} className="text-[#FF7F00]" />
-          <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] text-slate-500">Arise Marketing Agency Cross Africa</span>
+          <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] text-slate-500">ARISE AI MARKETING AGENCY CROSS AFRICA</span>
         </motion.div>
 
         <motion.h1 
@@ -53,7 +53,7 @@ const Hero: React.FC = () => {
               <Phone size={14} className="text-[#0077FF]" />
               <span className="text-[11px] font-black uppercase tracking-widest text-slate-500">Call Us</span>
             </div>
-            <span className="text-xl font-black tracking-tighter text-slate-900">0794785167</span>
+            <span className="text-xl font-black tracking-tighter text-slate-900">+250 795 590 127</span>
           </div>
         </motion.div>
       </div>

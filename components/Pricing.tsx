@@ -80,7 +80,7 @@ const Pricing: React.FC = () => {
             <p className="text-[10px] font-black text-[#FF7F00] uppercase tracking-[0.5em] mb-8 border-t border-orange-50 pt-3 w-full">{item.unit}</p>
             <p className="text-sm text-slate-800 font-bold leading-relaxed mb-10 min-h-[48px]">{item.details}</p>
             <a 
-              href="https://wa.me/250794785167"
+              href="https://wa.me/250795590127"
               target="_blank"
               rel="noopener noreferrer"
               className={`mt-auto w-full py-7 rounded-[2rem] font-black text-xs uppercase tracking-widest transition-all shadow-xl active:scale-95 flex items-center justify-center text-center ${item.featured ? 'bg-[#0077FF] text-white hover:bg-slate-900 shadow-blue-500/20' : 'bg-slate-900 text-white hover:bg-[#FF7F00] shadow-slate-900/20'}`}
@@ -116,7 +116,7 @@ const Pricing: React.FC = () => {
           </div>
           <div className="md:w-2/5 flex flex-col items-center justify-center w-full">
             <a 
-              href="https://wa.me/250794785167"
+              href="https://wa.me/250795590127"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full py-6 md:py-8 bg-[#FF7F00] hover:bg-white hover:text-slate-900 text-white rounded-[2rem] font-black text-xs md:text-sm lg:text-base uppercase tracking-[0.4em] transition-all text-center shadow-lg group relative overflow-hidden active:scale-95"
@@ -150,7 +150,7 @@ const Pricing: React.FC = () => {
             <h4 className="text-2xl font-black text-slate-900 mb-4 uppercase tracking-tight">01. Order</h4>
             <p className="text-slate-800 font-bold leading-relaxed mb-10">Choose your plan and message us for instant setup.</p>
             <a 
-              href="https://wa.me/250794785167" 
+              href="https://wa.me/250795590127" 
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center space-x-3 text-[#0077FF] font-black text-[11px] uppercase tracking-[0.4em] group/btn"
@@ -172,7 +172,7 @@ const Pricing: React.FC = () => {
             </div>
             <h4 className="text-2xl font-black text-slate-900 mb-4 uppercase tracking-tight">02. Send</h4>
             <p className="text-slate-800 font-bold leading-relaxed mb-10">Email us your project details and assets for processing.</p>
-            <a href="mailto:arisemarketingagency@gmail.com" className="flex items-center space-x-3 text-[#FF7F00] font-black text-[11px] uppercase tracking-[0.4em] group/btn">
+            <a href="mailto:contact@ariseaiagency.com" className="flex items-center space-x-3 text-[#FF7F00] font-black text-[11px] uppercase tracking-[0.4em] group/btn">
               <span>Email Us</span> <ChevronRight size={14} className="group-hover/btn:translate-x-1 transition-transform" />
             </a>
           </motion.div>
