@@ -5,7 +5,7 @@ import { ChevronRight, Sparkles, Phone } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden pt-40 md:pt-48 pb-20">
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden pt-64 md:pt-72 pb-24">
       <div className="container mx-auto px-6 relative z-20 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
