@@ -8,12 +8,12 @@ interface ServicesProps {
 }
 
 const sectors = [
-  { name: 'Restaurants', icon: <Utensils className="text-[#0077FF]" />, delay: 0 },
-  { name: 'Hotels', icon: <Hotel className="text-[#FF7F00]" />, delay: 0.1 },
-  { name: 'Schools', icon: <School className="text-[#0077FF]" />, delay: 0.2 },
-  { name: 'Companies', icon: <Building2 className="text-[#FF7F00]" />, delay: 0.3 },
-  { name: 'NGOs', icon: <Heart className="text-[#0077FF]" />, delay: 0.4 },
-  { name: 'Any Business', icon: <Zap className="text-[#FF7F00]" />, delay: 0.5 },
+  { name: 'Restaurants', icon: <Utensils className="text-[#0077FF]" size={28} />, delay: 0 },
+  { name: 'Hotels', icon: <Hotel className="text-[#FF7F00]" size={28} />, delay: 0.1 },
+  { name: 'Schools', icon: <School className="text-[#0077FF]" size={28} />, delay: 0.2 },
+  { name: 'Companies', icon: <Building2 className="text-[#FF7F00]" size={28} />, delay: 0.3 },
+  { name: 'NGOs', icon: <Heart className="text-[#0077FF]" size={28} />, delay: 0.4 },
+  { name: 'Any Business', icon: <Zap className="text-[#FF7F00]" size={28} />, delay: 0.5 },
 ];
 
 const Services: React.FC<ServicesProps> = ({ onSelectIndustry }) => {
@@ -33,18 +33,18 @@ const Services: React.FC<ServicesProps> = ({ onSelectIndustry }) => {
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: sector.delay, duration: 0.5 }}
-            className="flex flex-col items-center p-6 rounded-[2.5rem] glass-panel justify-center card-hover transition-all duration-500 group cursor-pointer border border-slate-100"
+            className="flex flex-col items-center p-8 rounded-[2.5rem] glass-panel justify-center card-hover transition-all duration-500 group cursor-pointer border border-slate-100"
             onClick={() => onSelectIndustry(sector.name)}
           >
-            <div className="mb-4 transform group-hover:scale-110 group-hover:-translate-y-2 transition-all duration-300">
+            <div className="mb-6 transform group-hover:scale-110 group-hover:-translate-y-2 transition-all duration-300">
               {sector.icon}
             </div>
-            <span className="text-[10px] font-black uppercase text-slate-900 tracking-widest text-center mb-3">
+            <span className="text-sm font-black uppercase text-slate-900 tracking-widest text-center mb-4">
               {sector.name}
             </span>
-            <div className="flex items-center space-x-1 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-              <span className="text-[8px] font-black text-[#FF7F00] uppercase tracking-tighter">View Proof</span>
-              <Eye size={10} className="text-[#FF7F00]" />
+            <div className="flex items-center space-x-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+              <span className="text-[10px] font-black text-[#FF7F00] uppercase tracking-tighter">View Proof</span>
+              <Eye size={12} className="text-[#FF7F00]" />
             </div>
           </motion.div>
         ))}
@@ -64,10 +64,10 @@ const Services: React.FC<ServicesProps> = ({ onSelectIndustry }) => {
         </p>
         <button 
           onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
-          className="group inline-flex items-center space-x-4 px-10 py-5 bg-slate-900 text-white rounded-2xl font-black text-xs uppercase tracking-[0.2em] hover:bg-[#0077FF] transition-all shadow-xl"
+          className="group inline-flex items-center space-x-4 px-10 py-5 bg-slate-900 text-white rounded-2xl font-black text-sm uppercase tracking-[0.2em] hover:bg-[#0077FF] transition-all shadow-xl"
         >
           <span>See Pricing Models</span>
-          <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+          <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
         </button>
       </motion.div>
     </div>

@@ -7,7 +7,7 @@ interface NavbarProps {
 }
 
 // EDIT THIS ADDRESS TO UPLOAD YOUR LOGO
-const LOGO_URL = "https://i.imgur.com/lYz6Y6B.png"; 
+const LOGO_URL = "https://i.imgur.com/lNYQh3G.png"; 
 
 const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -49,20 +49,20 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'glass-nav py-3 shadow-lg' : 'bg-transparent py-8'}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'glass-nav py-4 shadow-lg' : 'bg-transparent py-8'}`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo Area */}
         <a href="#hero" onClick={(e) => handleLinkClick(e, '#hero')} className="flex items-center space-x-4 group">
-          <div className="w-20 h-20 flex items-center justify-center overflow-hidden">
+          <div className="w-24 h-24 flex items-center justify-center overflow-hidden">
             {LOGO_URL ? (
               <img src={LOGO_URL} alt="Logo" className="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300" />
             ) : (
-              <div className="w-full h-full bg-slate-100 rounded-xl border-2 border-dashed border-slate-200 flex items-center justify-center text-[8px] font-black text-slate-400 uppercase text-center p-1">Logo Area</div>
+              <div className="w-full h-full bg-slate-100 rounded-xl border-2 border-dashed border-slate-200 flex items-center justify-center text-xs font-black text-slate-400 uppercase text-center p-2">Logo Area</div>
             )}
           </div>
           <div className="flex flex-col -space-y-1">
-            <span className="text-xl md:text-2xl font-black tracking-[-0.03em] text-slate-900 uppercase leading-none">Arise AI <span className="text-[#0077FF]">Marketing</span></span>
-            <span className="text-[9px] font-black tracking-[0.5em] text-[#FF7F00] uppercase mt-1">Agency</span>
+            <span className="text-xl md:text-3xl font-black tracking-[-0.03em] text-slate-900 uppercase leading-none">Arise AI <span className="text-[#0077FF]">Marketing</span></span>
+            <span className="text-xs font-black tracking-[0.5em] text-[#FF7F00] uppercase mt-2">Agency</span>
           </div>
         </a>
 
@@ -73,7 +73,7 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
               key={link.name} 
               href={link.href}
               onClick={(e) => handleLinkClick(e, link.href)}
-              className={`text-[11px] font-black tracking-[0.2em] transition-all duration-300 uppercase relative py-1
+              className={`text-[13px] font-black tracking-[0.2em] transition-all duration-300 uppercase relative py-1
                 ${activeSection === link.href.substring(1) ? 'text-[#FF7F00]' : 'text-slate-700 hover:text-slate-900'}`}
             >
               {link.name}
@@ -83,10 +83,10 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
             </a>
           ))}
           <a 
-            href="https://wa.me/250795590127" 
+            href="https://wa.me/250794785167" 
             target="_blank"
             rel="noopener noreferrer"
-            className="px-8 py-3 bg-slate-900 hover:bg-[#FF7F00] text-white font-black rounded-2xl text-[10px] tracking-[0.2em] transition-all duration-300 shadow-xl shadow-slate-900/10 uppercase"
+            className="px-8 py-4 bg-slate-900 hover:bg-[#FF7F00] text-white font-black rounded-2xl text-xs tracking-[0.2em] transition-all duration-300 shadow-xl shadow-slate-900/10 uppercase"
           >
             Order Now
           </a>
@@ -117,7 +117,7 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
           ))}
           <div className="w-full pt-8 flex flex-col items-center space-y-6">
             <a 
-              href="https://wa.me/250795590127" 
+              href="https://wa.me/250794785167" 
               className="w-full text-center px-6 py-6 bg-slate-900 text-white font-black rounded-[2rem] text-sm tracking-widest uppercase shadow-xl"
             >
               Contact via WhatsApp
