@@ -1,15 +1,13 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Play, Sparkles, CheckCircle2, History, ShieldCheck, X, Maximize2, ExternalLink } from 'lucide-react';
+import { Play, Sparkles, History, ShieldCheck, X, ExternalLink } from 'lucide-react';
 
 interface PortfolioItem {
   id: string;
   category: string;
-  title: string;
   src: string;
   type: 'image' | 'video';
-  tags: string[];
 }
 
 interface PortfolioProps {
@@ -19,17 +17,8 @@ interface PortfolioProps {
 
 const categories = ['Restaurants', 'Hotels', 'Schools', 'Companies', 'NGOs', 'Any Business'];
 
-const proofTitles = [
-  "Market Dominance",
-  "Strategic Branding",
-  "Visual Excellence",
-  "Elite Documentation",
-  "Digital Narrative",
-  "Verified Impact"
-];
-
 const getAssetForSlot = (cat: string, slot: number): string => {
-  const imgParams = "auto=format&fit=crop&q=95&w=1600"; 
+  const imgParams = "auto=format&fit=crop&q=100&w=1920"; 
   
   if (cat === 'Schools') {
     if (slot === 1) return 'https://i.imgur.com/zrOQ28p.mp4';
@@ -87,7 +76,7 @@ const getAssetForSlot = (cat: string, slot: number): string => {
 
   return slot <= 2 
     ? 'https://cdn.pixabay.com/video/2016/11/04/6305-190367375_tiny.mp4' 
-    : `https://picsum.photos/seed/${cat}-${slot}/1600/1000`;
+    : `https://picsum.photos/seed/${cat}-${slot}/1920/1200`;
 };
 
 const generatePortfolioData = (): PortfolioItem[] => {
@@ -97,10 +86,8 @@ const generatePortfolioData = (): PortfolioItem[] => {
       data.push({
         id: `${cat}-${i}`,
         category: cat,
-        title: proofTitles[i - 1],
         type: (i === 1 || i === 2) ? 'video' : 'image',
         src: getAssetForSlot(cat, i),
-        tags: ["VERIFIED", "PREMIUM", "AFRICAN-ELITE"]
       });
     }
   });
@@ -140,7 +127,7 @@ const PortfolioMedia: React.FC<{ item: PortfolioItem; onOpen: (item: PortfolioIt
           <video 
             ref={videoRef}
             src={item.src} 
-            className="w-full h-full object-cover transform scale-[1.01] group-hover:scale-105 transition-transform duration-[1.2s] ease-out" 
+            className="w-full h-full object-cover transform scale-[1.01] group-hover:scale-110 transition-transform duration-[1.5s] ease-out" 
             loop 
             muted 
             playsInline
@@ -149,33 +136,22 @@ const PortfolioMedia: React.FC<{ item: PortfolioItem; onOpen: (item: PortfolioIt
         ) : (
           <img 
             src={item.src} 
-            alt={item.title} 
-            className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-[1.2s] ease-out" 
+            alt="Arise Portfolio" 
+            className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1.5s] ease-out" 
             loading="lazy" 
           />
         )}
         
-        {/* Modern Content Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/70 opacity-40 group-hover:opacity-100 transition-opacity duration-500" />
+        {/* Pure Overlay - No Text */}
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-500" />
         
         {item.type === 'video' && (
            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="w-16 h-16 bg-white/5 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/10 text-white opacity-60 group-hover:opacity-0 transition-opacity">
+              <div className="w-16 h-16 bg-white/5 backdrop-blur-md rounded-full flex items-center justify-center border border-white/10 text-white opacity-40 group-hover:opacity-0 transition-opacity">
                 <Play size={24} fill="white" className="ml-1" />
               </div>
            </div>
         )}
-
-        <div className="absolute inset-x-0 bottom-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-          <div className="flex items-center space-x-3 mb-2">
-            <span className="text-[10px] font-black uppercase text-[#FF7F00] tracking-[0.2em] bg-white/10 px-3 py-1 rounded-full border border-white/5 backdrop-blur-md">
-              {item.category}
-            </span>
-          </div>
-          <h3 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tighter leading-[0.85] drop-shadow-2xl">
-            {item.title}
-          </h3>
-        </div>
       </div>
     </motion.div>
   );
@@ -184,30 +160,28 @@ const PortfolioMedia: React.FC<{ item: PortfolioItem; onOpen: (item: PortfolioIt
 const Lightbox: React.FC<{ item: PortfolioItem | null; onClose: () => void }> = ({ item, onClose }) => {
   if (!item) return null;
 
-  const displayCategory = item.category.toUpperCase();
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-xl"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/98 backdrop-blur-2xl p-4 md:p-10"
       onClick={onClose}
     >
       <button 
-        className="absolute top-8 right-8 z-[120] w-16 h-16 bg-white/5 hover:bg-[#FF7F00] backdrop-blur-xl rounded-full flex items-center justify-center text-white border border-white/10 transition-all hover:rotate-90"
+        className="absolute top-6 right-6 z-[120] w-12 h-12 bg-white/5 hover:bg-[#FF7F00] rounded-full flex items-center justify-center text-white border border-white/10 transition-all"
         onClick={(e) => { e.stopPropagation(); onClose(); }}
       >
-        <X size={28} />
+        <X size={20} />
       </button>
 
       <motion.div 
-        initial={{ scale: 0.9, opacity: 0 }}
+        initial={{ scale: 0.95, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        className="relative w-full h-full flex flex-col md:flex-row items-stretch bg-black"
+        className="relative w-full h-full flex flex-col md:flex-row items-stretch bg-black overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex-grow h-[50vh] md:h-auto bg-black flex items-center justify-center p-4">
+        <div className="flex-grow h-[50vh] md:h-auto bg-black flex items-center justify-center relative">
           {item.type === 'video' ? (
             <video 
               src={item.src} 
@@ -220,32 +194,23 @@ const Lightbox: React.FC<{ item: PortfolioItem | null; onClose: () => void }> = 
           ) : (
             <img 
               src={item.src} 
-              alt={item.title} 
+              alt="Elite Content" 
               className="max-h-full max-w-full object-contain" 
             />
           )}
         </div>
 
-        <div className="w-full md:w-[500px] flex-shrink-0 p-10 md:p-16 text-left bg-zinc-950 flex flex-col justify-center border-t md:border-t-0 md:border-l border-white/5">
+        <div className="w-full md:w-[400px] flex-shrink-0 p-8 md:p-12 text-left bg-zinc-950 flex flex-col justify-center border-t md:border-t-0 md:border-l border-white/5">
           <div className="space-y-10">
-            <div className="flex items-center space-x-6">
-               <div className="w-12 h-12 bg-[#FF7F00]/10 rounded-xl flex items-center justify-center border border-[#FF7F00]/20">
-                 <ShieldCheck size={24} className="text-[#FF7F00]" />
+            <div className="flex items-center space-x-4">
+               <div className="w-10 h-10 bg-[#FF7F00]/10 rounded-lg flex items-center justify-center border border-[#FF7F00]/20">
+                 <ShieldCheck size={20} className="text-[#FF7F00]" />
                </div>
-               <span className="text-xs font-black text-[#FF7F00] uppercase tracking-[0.5em]">Verified Content</span>
+               <span className="text-[9px] font-black text-[#FF7F00] uppercase tracking-[0.5em]">Arise AI Digital Record</span>
             </div>
 
-            <div className="space-y-4">
-              <h2 className="text-5xl md:text-6xl font-black text-white uppercase tracking-tighter leading-[0.8]">
-                {displayCategory}
-              </h2>
-              <h3 className="text-2xl md:text-3xl font-black text-[#0077FF] uppercase tracking-tighter opacity-90">
-                {item.title}
-              </h3>
-            </div>
-
-            <p className="text-zinc-400 text-base md:text-lg font-medium leading-relaxed uppercase tracking-widest max-w-xl">
-              High-fidelity documentation for visionaries across Africa. Engineering the future of brand perception.
+            <p className="text-zinc-400 text-xs md:text-sm font-medium leading-relaxed uppercase tracking-[0.1em] max-w-xs">
+              This visual asset represents elite brand positioning documented for visionaries across the continent.
             </p>
           </div>
 
@@ -254,10 +219,10 @@ const Lightbox: React.FC<{ item: PortfolioItem | null; onClose: () => void }> = 
               href="https://wa.me/250794785167"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center space-x-6 w-full py-8 bg-white text-black rounded-full font-black text-sm uppercase tracking-[0.3em] hover:bg-[#0077FF] hover:text-white transition-all group"
+              className="flex items-center justify-center space-x-3 w-full py-6 bg-white text-black rounded-full font-black text-[10px] uppercase tracking-[0.3em] hover:bg-[#0077FF] hover:text-white transition-all shadow-xl"
             >
-              <ExternalLink size={20} />
-              <span>Elevate Your Brand</span>
+              <ExternalLink size={14} />
+              <span>Request Similiar Proof</span>
             </a>
           </div>
         </div>
@@ -286,25 +251,22 @@ const Portfolio: React.FC<PortfolioProps> = ({ selectedCategory, onClearFilter }
   return (
     <div className="w-full bg-white">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-center justify-between mb-24 space-y-12 md:space-y-0 text-center md:text-left pt-32">
+        <div className="flex flex-col md:flex-row items-center justify-between mb-12 space-y-6 md:space-y-0 text-center md:text-left pt-12">
           <motion.div 
             key={selectedCategory || 'all-header'} 
-            initial={{ opacity: 0, y: 15 }} 
+            initial={{ opacity: 0, y: 10 }} 
             animate={{ opacity: 1, y: 0 }}
             className="max-w-4xl"
           >
-            <div className="flex items-center justify-center md:justify-start space-x-6 mb-8">
-              <div className="w-16 h-2 bg-[#FF7F00] rounded-full" />
-              <span className="text-base font-black uppercase tracking-[0.5em] text-[#FF7F00]">
-                {selectedCategory ? `${selectedCategory} Proof` : 'Elite Portfolio Documentation'}
+            <div className="flex items-center justify-center md:justify-start space-x-4 mb-3">
+              <div className="w-10 h-1 bg-[#FF7F00] rounded-full" />
+              <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#FF7F00]">
+                {selectedCategory ? `${selectedCategory} Proof` : 'Verified Transformations'}
               </span>
             </div>
-            <h2 className="text-6xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter text-slate-900 leading-[0.8] mb-10">
-              The <span className="text-[#0077FF]">Proof.</span>
+            <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-slate-900 leading-[0.85]">
+              Visual <span className="text-[#0077FF]">Proof.</span>
             </h2>
-            <p className="text-slate-500 text-lg md:text-2xl font-medium leading-relaxed uppercase tracking-widest mx-auto md:mx-0 max-w-3xl opacity-80">
-              Direct evidence of brand dominance and transformation for African visionaries. Every asset is engineered for maximum quality.
-            </p>
           </motion.div>
           
           {selectedCategory && (
@@ -312,10 +274,10 @@ const Portfolio: React.FC<PortfolioProps> = ({ selectedCategory, onClearFilter }
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               onClick={onClearFilter}
-              className="flex items-center space-x-6 text-slate-900 font-black uppercase tracking-widest border-2 border-slate-900 px-16 py-8 rounded-full bg-white hover:bg-slate-900 hover:text-white transition-all active:scale-95 text-xs"
+              className="flex items-center space-x-3 text-slate-900 font-black uppercase tracking-[0.2em] border-2 border-slate-900 px-8 py-4 rounded-full bg-white hover:bg-slate-900 hover:text-white transition-all active:scale-95 text-[9px]"
             >
-              <History size={20} />
-              <span>Show All</span>
+              <History size={14} />
+              <span>Show All Media</span>
             </motion.button>
           )}
         </div>
@@ -340,10 +302,10 @@ const Portfolio: React.FC<PortfolioProps> = ({ selectedCategory, onClearFilter }
       </AnimatePresence>
 
       {filteredItems.length === 0 && portfolioData.length > 0 && (
-        <div className="py-48 text-center bg-white">
-          <Sparkles size={100} className="mx-auto text-slate-200 mb-10 animate-pulse" />
-          <h3 className="text-4xl font-black text-slate-400 uppercase tracking-widest">Compiling Proof</h3>
-          <button onClick={onClearFilter} className="mt-12 px-14 py-6 bg-slate-900 text-white font-black rounded-full uppercase text-xs tracking-widest">Reset Filter</button>
+        <div className="py-24 text-center bg-white">
+          <Sparkles size={40} className="mx-auto text-slate-100 mb-6 animate-pulse" />
+          <h3 className="text-sm font-black text-slate-300 uppercase tracking-widest">Optimizing Visuals</h3>
+          <button onClick={onClearFilter} className="mt-6 px-8 py-4 bg-slate-900 text-white rounded-full text-[9px] font-black uppercase tracking-[0.2em]">Reset Filter</button>
         </div>
       )}
     </div>
