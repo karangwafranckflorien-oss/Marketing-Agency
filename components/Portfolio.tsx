@@ -8,6 +8,7 @@ interface PortfolioItem {
   category: string;
   src: string;
   type: 'image' | 'video';
+  professionalLabel: string;
 }
 
 interface PortfolioProps {
@@ -18,7 +19,7 @@ interface PortfolioProps {
 const categories = ['Restaurants', 'Hotels', 'Schools', 'Companies', 'NGOs', 'Any Business'];
 
 const getAssetForSlot = (cat: string, slot: number): string => {
-  const imgParams = "auto=format&fit=crop&q=100&w=1920"; 
+  const imgParams = "auto=format&fit=crop&q=100&w=1200"; 
   
   if (cat === 'Schools') {
     if (slot === 1) return 'https://i.imgur.com/zrOQ28p.mp4';
@@ -76,8 +77,17 @@ const getAssetForSlot = (cat: string, slot: number): string => {
 
   return slot <= 2 
     ? 'https://cdn.pixabay.com/video/2016/11/04/6305-190367375_tiny.mp4' 
-    : `https://picsum.photos/seed/${cat}-${slot}/1920/1200`;
+    : `https://picsum.photos/seed/${cat}-${slot}/1200/1600`;
 };
+
+const professionalLabels = [
+  "ELITE ADVERTISING CAMPAIGN",
+  "PREMIUM CONTENT PRODUCTION",
+  "STRATEGIC FLYER DESIGN",
+  "BRAND IDENTITY CASE STUDY",
+  "CINEMATIC BRAND NARRATIVE",
+  "MARKET AUTHORITY ASSET"
+];
 
 const generatePortfolioData = (): PortfolioItem[] => {
   const data: PortfolioItem[] = [];
@@ -88,6 +98,7 @@ const generatePortfolioData = (): PortfolioItem[] => {
         category: cat,
         type: (i === 1 || i === 2) ? 'video' : 'image',
         src: getAssetForSlot(cat, i),
+        professionalLabel: professionalLabels[i - 1],
       });
     }
   });
@@ -116,18 +127,18 @@ const PortfolioMedia: React.FC<{ item: PortfolioItem; onOpen: (item: PortfolioIt
 
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       onClick={() => onOpen(item)}
-      className="relative group cursor-pointer w-full bg-black overflow-hidden"
+      className="mb-12 overflow-hidden group cursor-pointer relative bg-white rounded-[2.5rem] p-2 border border-slate-50 shadow-sm"
     >
-      <div className="relative w-full aspect-[16/10]">
+      <div className="w-full relative overflow-hidden rounded-[2rem]">
         {item.type === 'video' ? (
           <video 
             ref={videoRef}
             src={item.src} 
-            className="w-full h-full object-cover transform scale-[1.01] group-hover:scale-110 transition-transform duration-[1.5s] ease-out" 
+            className="w-full h-auto block transform scale-[1.01] group-hover:scale-105 transition-transform duration-[1s] ease-out rounded-[2rem]" 
             loop 
             muted 
             playsInline
@@ -136,18 +147,26 @@ const PortfolioMedia: React.FC<{ item: PortfolioItem; onOpen: (item: PortfolioIt
         ) : (
           <img 
             src={item.src} 
-            alt="Arise Portfolio" 
-            className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1.5s] ease-out" 
+            alt="Arise Elite Documentation" 
+            className="w-full h-auto block transform group-hover:scale-105 transition-transform duration-[1s] ease-out rounded-[2rem]" 
             loading="lazy" 
           />
         )}
         
-        {/* Pure Overlay - No Text */}
-        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-500" />
+        {/* Subtle Professional Identifier Overlay */}
+        <div className="absolute bottom-8 left-8 right-8 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-3 group-hover:translate-y-0">
+          <div className="px-6 py-4 bg-black/50 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl">
+            <span className="text-[10px] md:text-[11px] font-black text-white tracking-[0.5em] uppercase leading-none block">{item.professionalLabel}</span>
+            <span className="text-[9px] font-bold text-[#FF7F00] tracking-[0.3em] uppercase mt-2 block opacity-90">{item.category} RECORD</span>
+          </div>
+        </div>
+
+        {/* Dynamic Dark Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[2rem]" />
         
         {item.type === 'video' && (
            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="w-16 h-16 bg-white/5 backdrop-blur-md rounded-full flex items-center justify-center border border-white/10 text-white opacity-40 group-hover:opacity-0 transition-opacity">
+              <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 text-white opacity-40 group-hover:opacity-0 transition-opacity">
                 <Play size={24} fill="white" className="ml-1" />
               </div>
            </div>
@@ -165,27 +184,27 @@ const Lightbox: React.FC<{ item: PortfolioItem | null; onClose: () => void }> = 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/98 backdrop-blur-2xl p-4 md:p-10"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/98 backdrop-blur-3xl p-6 md:p-16"
       onClick={onClose}
     >
       <button 
-        className="absolute top-6 right-6 z-[120] w-12 h-12 bg-white/5 hover:bg-[#FF7F00] rounded-full flex items-center justify-center text-white border border-white/10 transition-all"
+        className="absolute top-10 right-10 z-[120] w-14 h-14 bg-white/10 hover:bg-[#FF7F00] rounded-full flex items-center justify-center text-white border border-white/10 transition-all hover:rotate-90 shadow-2xl"
         onClick={(e) => { e.stopPropagation(); onClose(); }}
       >
-        <X size={20} />
+        <X size={24} />
       </button>
 
       <motion.div 
         initial={{ scale: 0.95, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        className="relative w-full h-full flex flex-col md:flex-row items-stretch bg-black overflow-hidden"
+        className="relative w-full h-full flex flex-col md:flex-row items-stretch bg-[#080808] overflow-hidden shadow-2xl rounded-[3rem] border border-white/5"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex-grow h-[50vh] md:h-auto bg-black flex items-center justify-center relative">
+        <div className="flex-grow h-[50vh] md:h-auto bg-black flex items-center justify-center relative p-4">
           {item.type === 'video' ? (
             <video 
               src={item.src} 
-              className="max-h-full max-w-full object-contain" 
+              className="max-h-full max-w-full object-contain rounded-2xl" 
               controls 
               autoPlay 
               playsInline
@@ -194,36 +213,40 @@ const Lightbox: React.FC<{ item: PortfolioItem | null; onClose: () => void }> = 
           ) : (
             <img 
               src={item.src} 
-              alt="Elite Content" 
-              className="max-h-full max-w-full object-contain" 
+              alt="Elite Visual Asset" 
+              className="max-h-full max-w-full object-contain rounded-2xl" 
             />
           )}
         </div>
 
-        <div className="w-full md:w-[400px] flex-shrink-0 p-8 md:p-12 text-left bg-zinc-950 flex flex-col justify-center border-t md:border-t-0 md:border-l border-white/5">
-          <div className="space-y-10">
-            <div className="flex items-center space-x-4">
-               <div className="w-10 h-10 bg-[#FF7F00]/10 rounded-lg flex items-center justify-center border border-[#FF7F00]/20">
-                 <ShieldCheck size={20} className="text-[#FF7F00]" />
+        <div className="w-full md:w-[520px] flex-shrink-0 p-12 md:p-20 text-left bg-[#0c0c0c] flex flex-col justify-center border-t md:border-t-0 md:border-l border-white/5">
+          <div className="space-y-14">
+            <div className="flex items-center space-x-6">
+               <div className="w-20 h-20 bg-[#FF7F00]/10 rounded-[2rem] flex items-center justify-center border border-[#FF7F00]/20 shadow-inner">
+                 <ShieldCheck size={36} className="text-[#FF7F00]" />
                </div>
-               <span className="text-[9px] font-black text-[#FF7F00] uppercase tracking-[0.5em]">Arise AI Digital Record</span>
+               <div className="flex flex-col">
+                 <span className="text-[11px] font-black text-[#FF7F00] uppercase tracking-[0.7em]">ELITE DOCUMENT</span>
+                 <span className="text-[15px] font-bold text-white tracking-[0.3em] mt-2 uppercase">{item.professionalLabel}</span>
+               </div>
             </div>
 
-            <p className="text-zinc-400 text-xs md:text-sm font-medium leading-relaxed uppercase tracking-[0.1em] max-w-xs">
-              This visual asset represents elite brand positioning documented for visionaries across the continent.
+            <p className="text-zinc-500 text-sm md:text-lg font-medium leading-relaxed uppercase tracking-[0.1em] max-w-sm">
+              Premium market documentation engineered for visionaries. This {item.category.toLowerCase()} asset exemplifies the pinnacle of <span className="text-white">African Digital Excellence</span>.
             </p>
           </div>
 
-          <div className="mt-16">
+          <div className="mt-24">
             <a 
               href="https://wa.me/250794785167"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center space-x-3 w-full py-6 bg-white text-black rounded-full font-black text-[10px] uppercase tracking-[0.3em] hover:bg-[#0077FF] hover:text-white transition-all shadow-xl"
+              className="flex items-center justify-center space-x-5 w-full py-10 bg-white text-black rounded-[2.5rem] font-black text-[13px] uppercase tracking-[0.5em] hover:bg-[#0077FF] hover:text-white transition-all shadow-2xl active:scale-95"
             >
-              <ExternalLink size={14} />
-              <span>Request Similiar Proof</span>
+              <ExternalLink size={20} />
+              <span>Elevate Your Brand</span>
             </a>
+            <p className="mt-10 text-[10px] font-black text-center text-zinc-700 uppercase tracking-[0.6em] opacity-60">Arise AI Marketing Agency • Rwanda</p>
           </div>
         </div>
       </motion.div>
@@ -251,22 +274,25 @@ const Portfolio: React.FC<PortfolioProps> = ({ selectedCategory, onClearFilter }
   return (
     <div className="w-full bg-white">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-center justify-between mb-12 space-y-6 md:space-y-0 text-center md:text-left pt-12">
+        <div className="flex flex-col md:flex-row items-center justify-between mb-24 space-y-12 md:space-y-0 text-center md:text-left pt-32">
           <motion.div 
             key={selectedCategory || 'all-header'} 
-            initial={{ opacity: 0, y: 10 }} 
+            initial={{ opacity: 0, y: 20 }} 
             animate={{ opacity: 1, y: 0 }}
             className="max-w-4xl"
           >
-            <div className="flex items-center justify-center md:justify-start space-x-4 mb-3">
-              <div className="w-10 h-1 bg-[#FF7F00] rounded-full" />
-              <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#FF7F00]">
+            <div className="flex items-center justify-center md:justify-start space-x-6 mb-6">
+              <div className="w-16 h-1.5 bg-[#FF7F00] rounded-full" />
+              <span className="text-[12px] font-black uppercase tracking-[0.6em] text-[#FF7F00]">
                 {selectedCategory ? `${selectedCategory} Proof` : 'Verified Transformations'}
               </span>
             </div>
-            <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-slate-900 leading-[0.85]">
+            <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter text-slate-900 leading-[0.85] mb-10">
               Visual <span className="text-[#0077FF]">Proof.</span>
             </h2>
+            <p className="text-slate-400 text-sm font-black uppercase tracking-[0.5em] max-w-2xl opacity-70">
+              Original native dimensions documentation of market-leading results.
+            </p>
           </motion.div>
           
           {selectedCategory && (
@@ -274,38 +300,40 @@ const Portfolio: React.FC<PortfolioProps> = ({ selectedCategory, onClearFilter }
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               onClick={onClearFilter}
-              className="flex items-center space-x-3 text-slate-900 font-black uppercase tracking-[0.2em] border-2 border-slate-900 px-8 py-4 rounded-full bg-white hover:bg-slate-900 hover:text-white transition-all active:scale-95 text-[9px]"
+              className="flex items-center space-x-5 text-slate-900 font-black uppercase tracking-[0.5em] border-2 border-slate-900 px-12 py-6 rounded-full bg-white hover:bg-slate-900 hover:text-white transition-all active:scale-95 text-[11px] shadow-lg"
             >
-              <History size={14} />
-              <span>Show All Media</span>
+              <History size={18} />
+              <span>Show All Records</span>
             </motion.button>
           )}
         </div>
       </div>
 
-      <AnimatePresence mode="wait">
-        <motion.div 
-          key={selectedCategory || 'all-grid'}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 bg-black"
-        >
-          {filteredItems.map((item) => (
-            <PortfolioMedia key={item.id} item={item} onOpen={setSelectedItem} />
-          ))}
-        </motion.div>
-      </AnimatePresence>
+      <div className="container mx-auto px-6 pb-32">
+        <AnimatePresence mode="wait">
+          <motion.div 
+            key={selectedCategory || 'all-grid'}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="columns-1 md:columns-2 lg:columns-3 gap-12"
+          >
+            {filteredItems.map((item) => (
+              <PortfolioMedia key={item.id} item={item} onOpen={setSelectedItem} />
+            ))}
+          </motion.div>
+        </AnimatePresence>
+      </div>
 
       <AnimatePresence>
         {selectedItem && <Lightbox item={selectedItem} onClose={() => setSelectedItem(null)} />}
       </AnimatePresence>
 
       {filteredItems.length === 0 && portfolioData.length > 0 && (
-        <div className="py-24 text-center bg-white">
-          <Sparkles size={40} className="mx-auto text-slate-100 mb-6 animate-pulse" />
-          <h3 className="text-sm font-black text-slate-300 uppercase tracking-widest">Optimizing Visuals</h3>
-          <button onClick={onClearFilter} className="mt-6 px-8 py-4 bg-slate-900 text-white rounded-full text-[9px] font-black uppercase tracking-[0.2em]">Reset Filter</button>
+        <div className="py-48 text-center bg-white">
+          <Sparkles size={80} className="mx-auto text-slate-100 mb-10 animate-pulse" />
+          <h3 className="text-2xl font-black text-slate-300 uppercase tracking-widest">Optimizing Records</h3>
+          <button onClick={onClearFilter} className="mt-12 px-12 py-6 bg-slate-900 text-white rounded-full text-[11px] font-black uppercase tracking-[0.5em]">Clear Filter</button>
         </div>
       )}
     </div>

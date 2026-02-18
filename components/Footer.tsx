@@ -128,7 +128,7 @@ const Footer: React.FC = () => {
                 <Instagram size={24} className="text-slate-700 group-hover:text-[#E4405F]" />
               </a>
               <a 
-                href="https://www.tiktok.com/@arisemarketingagency" 
+                href="https://www.tiktok.com/@ariseaimarketingagency" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-14 h-14 rounded-2xl bg-white border border-slate-200 flex items-center justify-center hover:shadow-xl hover:border-black transition-all group shadow-sm"
