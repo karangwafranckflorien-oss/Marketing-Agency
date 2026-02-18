@@ -31,7 +31,7 @@ const getAssetForSlot = (cat: string, slot: number): string => {
   }
   
   if (cat === 'Restaurants') {
-    if (slot === 1) return 'https://i.imgur.com/k7EbGcP.mp4';
+    if (slot === 1) return 'https://i.imgur.com/fq8gvAq.mp4';
     if (slot === 2) return 'https://i.imgur.com/ItpRQft.mp4';
     if (slot === 3) return `https://images.unsplash.com/photo-1555396273-367ea4eb4db5?${imgParams}`; 
     if (slot === 4) return 'https://i.imgur.com/JQZrvvC.png';
@@ -153,7 +153,6 @@ const PortfolioMedia: React.FC<{ item: PortfolioItem; onOpen: (item: PortfolioIt
           />
         )}
         
-        {/* Subtle Professional Identifier Overlay */}
         <div className="absolute bottom-8 left-8 right-8 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-3 group-hover:translate-y-0">
           <div className="px-6 py-4 bg-black/50 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl">
             <span className="text-[10px] md:text-[11px] font-black text-white tracking-[0.5em] uppercase leading-none block">{item.professionalLabel}</span>
@@ -161,7 +160,6 @@ const PortfolioMedia: React.FC<{ item: PortfolioItem; onOpen: (item: PortfolioIt
           </div>
         </div>
 
-        {/* Dynamic Dark Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[2rem]" />
         
         {item.type === 'video' && (
