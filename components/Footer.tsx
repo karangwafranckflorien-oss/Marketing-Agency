@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Phone, Mail, Instagram, MessageCircle, ChevronRight, Globe } from 'lucide-react';
 
 // EDIT THIS ADDRESS TO UPLOAD YOUR LOGO
@@ -18,19 +19,29 @@ const TikTokIcon = ({ size = 20, className = "" }) => (
 );
 
 const Footer: React.FC = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const quickLinks = [
-    { name: 'Home', href: '#hero' },
-    { name: 'Industries', href: '#services' },
-    { name: 'Portfolio', href: '#portfolio' },
-    { name: 'Pricing', href: '#pricing' },
-    { name: 'Contact', href: '#footer' },
+    { name: 'Home', href: '/', isHash: true, section: 'hero' },
+    { name: 'Industries', href: '/#services', isHash: true, section: 'services' },
+    { name: 'Portfolio', href: '/#portfolio', isHash: true, section: 'portfolio' },
+    { name: 'Pricing', href: '/#pricing', isHash: true, section: 'pricing' },
+    { name: 'Training', href: '/training', isHash: false },
+    { name: 'Contact', href: '/#footer', isHash: true, section: 'footer' },
   ];
 
-  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+  const handleLinkClick = (e: React.MouseEvent, link: typeof quickLinks[0]) => {
+    if (link.isHash) {
+      e.preventDefault();
+      if (location.pathname !== '/') {
+        navigate(link.href);
+      } else {
+        const element = document.getElementById(link.section!);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
     }
   };
 
@@ -60,14 +71,14 @@ const Footer: React.FC = () => {
             <ul className="space-y-5 flex flex-col items-center md:items-start">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <a 
-                    href={link.href} 
-                    onClick={(e) => handleLinkClick(e, link.href)}
+                  <Link 
+                    to={link.href} 
+                    onClick={(e) => handleLinkClick(e, link)}
                     className="group flex items-center text-sm font-bold text-slate-600 hover:text-[#0077FF] transition-colors"
                   >
                     <ChevronRight size={16} className="mr-3 text-[#FF7F00] opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0" />
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Instagram, MessageCircle, Phone } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Menu, X, Instagram, MessageCircle, Phone, GraduationCap } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface NavbarProps {
@@ -24,46 +25,63 @@ const TikTokIcon = ({ size = 20, className = "" }) => (
 const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const navLinks = [
-    { name: 'Home', href: '#hero' },
-    { name: 'Industries', href: '#services' },
-    { name: 'Portfolio', href: '#portfolio' },
-    { name: 'Pricing', href: '#pricing' },
-    { name: 'Contact', href: '#footer' },
+    { name: 'Home', href: '/', isHash: true, section: 'hero' },
+    { name: 'Industries', href: '/#services', isHash: true, section: 'services' },
+    { name: 'Portfolio', href: '/#portfolio', isHash: true, section: 'portfolio' },
+    { name: 'Pricing', href: '/#pricing', isHash: true, section: 'pricing' },
+    { name: 'Training', href: '/training', isHash: false },
+    { name: 'Contact', href: '/#footer', isHash: true, section: 'footer' },
   ];
 
   useEffect(() => {
+    if (location.pathname !== '/') {
+      setActiveSection('');
+      return;
+    }
+
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 100;
       for (const link of navLinks) {
-        const section = document.querySelector(link.href);
-        if (section) {
-          const top = (section as HTMLElement).offsetTop;
-          const height = (section as HTMLElement).offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveSection(link.href.substring(1));
+        if (link.isHash && link.section) {
+          const section = document.getElementById(link.section);
+          if (section) {
+            const top = section.offsetTop;
+            const height = section.offsetHeight;
+            if (scrollPosition >= top && scrollPosition < top + height) {
+              setActiveSection(link.section);
+            }
           }
         }
       }
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [location.pathname]);
 
-  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
+  const handleLinkClick = (e: React.MouseEvent, link: typeof navLinks[0]) => {
     setIsMobileMenuOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    
+    if (link.isHash) {
+      e.preventDefault();
+      if (location.pathname !== '/') {
+        navigate(link.href);
+      } else {
+        const element = document.getElementById(link.section!);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
     }
   };
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'glass-nav py-4 shadow-lg' : 'bg-transparent py-8'}`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <a href="#hero" onClick={(e) => handleLinkClick(e, '#hero')} className="flex items-center space-x-4 group">
+        <Link to="/" onClick={(e) => handleLinkClick(e, navLinks[0])} className="flex items-center space-x-4 group">
           <div className="w-16 md:w-20 h-16 md:h-20 flex items-center justify-center overflow-hidden">
             <img src={LOGO_URL} alt="Arise AI" className="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300" />
           </div>
@@ -71,32 +89,31 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
             <span className="text-lg md:text-2xl font-black tracking-[-0.03em] text-slate-900 uppercase leading-none">Arise AI <span className="text-[#0077FF]">Marketing</span></span>
             <span className="text-[10px] font-black tracking-[0.5em] text-[#FF7F00] uppercase mt-2">Agency</span>
           </div>
-        </a>
+        </Link>
 
         {/* Desktop Nav */}
         <div className="hidden lg:flex items-center space-x-10">
           {navLinks.map((link) => (
-            <a 
+            <Link 
               key={link.name} 
-              href={link.href}
-              onClick={(e) => handleLinkClick(e, link.href)}
+              to={link.href}
+              onClick={(e) => handleLinkClick(e, link)}
               className={`text-[12px] font-black tracking-[0.25em] transition-all duration-300 uppercase relative py-1
-                ${activeSection === link.href.substring(1) ? 'text-[#FF7F00]' : 'text-slate-700 hover:text-slate-900'}`}
+                ${(link.isHash && activeSection === link.section) || (!link.isHash && location.pathname === link.href) ? 'text-[#FF7F00]' : 'text-slate-700 hover:text-slate-900'}`}
             >
               {link.name}
-              {activeSection === link.href.substring(1) && (
+              {((link.isHash && activeSection === link.section) || (!link.isHash && location.pathname === link.href)) && (
                 <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#FF7F00] rounded-full" />
               )}
-            </a>
+            </Link>
           ))}
-          <a 
-            href="https://wa.me/250794785167" 
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-8 py-4 bg-slate-900 hover:bg-[#FF7F00] text-white font-black rounded-xl text-[11px] tracking-[0.3em] transition-all duration-300 shadow-xl shadow-slate-900/10 uppercase"
+          <Link 
+            to="/training"
+            className="px-8 py-4 bg-slate-900 hover:bg-[#FF7F00] text-white font-black rounded-xl text-[11px] tracking-[0.3em] transition-all duration-300 shadow-xl shadow-slate-900/10 uppercase flex items-center"
           >
-            Order Now
-          </a>
+            <GraduationCap size={16} className="mr-2" />
+            Join Training
+          </Link>
         </div>
 
         {/* Mobile Toggle */}
@@ -135,29 +152,33 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
 
             <div className="flex flex-col space-y-8 flex-grow">
               {navLinks.map((link, i) => (
-                <motion.a 
+                <motion.div
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.1 }}
-                  key={link.name} 
-                  href={link.href} 
-                  onClick={(e) => handleLinkClick(e, link.href)}
-                  className={`text-4xl font-black tracking-tighter uppercase transition-all
-                    ${activeSection === link.href.substring(1) ? 'text-[#FF7F00] translate-x-4' : 'text-slate-900 opacity-60'}`}
+                  key={link.name}
                 >
-                  {link.name}
-                </motion.a>
+                  <Link 
+                    to={link.href} 
+                    onClick={(e) => handleLinkClick(e, link)}
+                    className={`text-4xl font-black tracking-tighter uppercase transition-all block
+                      ${((link.isHash && activeSection === link.section) || (!link.isHash && location.pathname === link.href)) ? 'text-[#FF7F00] translate-x-4' : 'text-slate-900 opacity-60'}`}
+                  >
+                    {link.name}
+                  </Link>
+                </motion.div>
               ))}
             </div>
 
             <div className="pt-12 border-t border-slate-100 flex flex-col space-y-8">
-              <motion.a 
-                whileTap={{ scale: 0.98 }}
-                href="https://wa.me/250794785167" 
-                className="w-full text-center px-10 py-8 bg-[#FF7F00] text-white font-black rounded-[2.5rem] text-xs tracking-[0.4em] uppercase shadow-2xl shadow-orange-500/20"
+              <Link 
+                to="/training"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="w-full text-center px-10 py-8 bg-[#FF7F00] text-white font-black rounded-[2.5rem] text-xs tracking-[0.4em] uppercase shadow-2xl shadow-orange-500/20 flex items-center justify-center"
               >
-                Contact via WhatsApp
-              </motion.a>
+                <GraduationCap size={20} className="mr-3" />
+                Join Training Program
+              </Link>
               
               <div className="flex items-center justify-center space-x-8">
                 <a href="https://wa.me/250794785167" className="w-14 h-14 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-400 hover:text-[#25D366] transition-colors"><MessageCircle size={24} /></a>
