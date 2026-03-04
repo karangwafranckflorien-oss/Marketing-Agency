@@ -70,8 +70,8 @@ const Testimonials: React.FC = () => {
           <Quote size={18} className="text-[#FF7F00]" />
           <span className="text-xs font-black uppercase tracking-[0.4em] text-[#FF7F00]">Voice of the Visionaries</span>
         </div>
-        <h2 className="text-4xl md:text-6xl font-black mb-6 uppercase tracking-tight text-slate-900">Elite <span className="text-[#0077FF]">Feelings</span></h2>
-        <p className="text-slate-500 max-w-2xl mx-auto text-lg font-medium uppercase tracking-widest leading-relaxed">
+        <h2 className="text-4xl md:text-5xl font-black mb-6 uppercase tracking-tight text-slate-900">Elite <span className="text-[#0077FF]">Feelings</span></h2>
+        <p className="text-slate-500 max-w-2xl mx-auto text-base md:text-lg font-medium uppercase tracking-widest leading-relaxed">
           The transformation wall. Real feedback from those who chose market dominance.
         </p>
       </div>

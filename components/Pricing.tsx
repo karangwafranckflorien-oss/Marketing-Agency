@@ -77,10 +77,10 @@ const Pricing: React.FC = () => {
         <div className="inline-flex items-center space-x-4 px-8 py-3 bg-slate-50 rounded-full border border-slate-100 mb-8">
           <span className="text-[11px] font-black uppercase tracking-[0.5em] text-slate-400">Strategic Investment</span>
         </div>
-        <h2 className="text-5xl md:text-8xl font-black mb-10 uppercase tracking-tighter text-slate-900 leading-[0.85]">
+        <h2 className="text-4xl md:text-7xl font-black mb-10 uppercase tracking-tighter text-slate-900 leading-[0.85]">
           Elite <span className="text-[#FF7F00]">Rates.</span>
         </h2>
-        <p className="text-slate-500 max-w-2xl mx-auto text-lg md:text-xl font-medium uppercase tracking-[0.3em] leading-relaxed mb-12">
+        <p className="text-slate-500 max-w-2xl mx-auto text-base md:text-lg font-medium uppercase tracking-[0.2em] leading-relaxed mb-12">
           Engineered for brands that prioritize growth and African excellence.
         </p>
         
@@ -170,7 +170,7 @@ const Pricing: React.FC = () => {
                 href="https://wa.me/250794785167"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`flex items-center justify-center w-full py-10 rounded-[3rem] font-black text-xs uppercase tracking-[0.5em] transition-all shadow-2xl active:scale-95 ${pkg.featured ? 'bg-[#FF7F00] text-white hover:bg-slate-900' : 'bg-slate-900 text-white hover:bg-[#0077FF]'}`}
+                className={`flex items-center justify-center w-full py-8 rounded-[2.5rem] font-black text-sm uppercase tracking-[0.2em] transition-all shadow-2xl active:scale-95 ${pkg.featured ? 'bg-[#FF7F00] text-white hover:bg-slate-900' : 'bg-slate-900 text-white hover:bg-[#0077FF]'}`}
               >
                 Secure Retainer
               </a>
@@ -193,11 +193,11 @@ const Pricing: React.FC = () => {
               <Briefcase size={20} className="text-[#FF7F00]" />
               <span className="text-xs font-black uppercase tracking-[0.6em]">Enterprise Level Documentation</span>
             </div>
-            <h3 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-[0.9]">
+            <h3 className="text-3xl md:text-5xl font-black uppercase tracking-tighter leading-[0.9]">
               Custom <br />
               <span className="text-[#FF7F00]">Excellence.</span>
             </h3>
-            <p className="text-slate-400 text-lg md:text-2xl font-medium leading-relaxed uppercase tracking-widest max-w-2xl opacity-90">
+            <p className="text-slate-400 text-base md:text-xl font-medium leading-relaxed uppercase tracking-widest max-w-2xl opacity-90">
               For institutions requiring <span className="text-white">Full Market Strategy</span>, 
               Global <span className="text-white">Brand Audits</span>, or <span className="text-[#0077FF]">Omni-Channel Mastery</span>.
             </p>
@@ -207,12 +207,12 @@ const Pricing: React.FC = () => {
               href="https://wa.me/250794785167"
               target="_blank"
               rel="noopener noreferrer"
-              className="group w-full py-10 md:py-12 bg-white text-slate-900 hover:bg-[#FF7F00] hover:text-white rounded-[3.5rem] font-black text-sm lg:text-lg uppercase tracking-[0.6em] transition-all text-center shadow-2xl active:scale-95 flex items-center justify-center space-x-4"
+              className="group w-full py-8 md:py-10 bg-white text-slate-900 hover:bg-[#FF7F00] hover:text-white rounded-[2.5rem] font-black text-sm lg:text-base uppercase tracking-[0.2em] transition-all text-center shadow-2xl active:scale-95 flex items-center justify-center space-x-4"
             >
               <span>Consultation</span>
               <ChevronRight className="group-hover:translate-x-2 transition-transform" />
             </a>
-            <p className="mt-12 text-[11px] font-black text-slate-500 uppercase tracking-[0.7em] opacity-80 text-center">DOMINATING THE AFRICAN DIGITAL SPACE</p>
+            <p className="mt-12 text-[11px] font-black text-slate-500 uppercase tracking-[0.5em] opacity-80 text-center">DOMINATING THE AFRICAN DIGITAL SPACE</p>
           </div>
         </div>
       </motion.div>

@@ -24,11 +24,11 @@ const Services: React.FC<ServicesProps> = ({ onSelectIndustry }) => {
           <ShieldCheck size={20} className="text-[#FF7F00]" />
           <span className="text-xs font-black uppercase tracking-[0.5em] text-slate-400">Sectors of dominance</span>
         </div>
-        <h2 className="text-4xl md:text-7xl font-black mb-8 uppercase tracking-tighter text-slate-900 leading-tight">
+        <h2 className="text-4xl md:text-6xl font-black mb-8 uppercase tracking-tighter text-slate-900 leading-tight">
           Industries We <br />
           <span className="text-[#0077FF]">Elevate.</span>
         </h2>
-        <p className="text-slate-500 max-w-2xl mx-auto text-base md:text-lg font-medium uppercase tracking-[0.2em] leading-relaxed">
+        <p className="text-slate-500 max-w-2xl mx-auto text-sm md:text-base font-medium uppercase tracking-[0.15em] leading-relaxed">
           Select your industry to explore verified transformation records.
         </p>
         <div className="w-24 h-1.5 bg-[#FF7F00] mx-auto mt-12 rounded-full" />
@@ -66,10 +66,10 @@ const Services: React.FC<ServicesProps> = ({ onSelectIndustry }) => {
         className="mt-32 p-12 md:p-20 rounded-[4rem] bg-slate-900 text-white relative overflow-hidden text-center max-w-5xl mx-auto border border-white/5"
       >
         <div className="absolute top-0 right-0 w-80 h-80 bg-[#0077FF]/10 rounded-full blur-[100px] -z-10" />
-        <h3 className="text-3xl md:text-5xl font-black mb-10 uppercase tracking-tighter leading-tight">
+        <h3 className="text-3xl md:text-4xl font-black mb-10 uppercase tracking-tighter leading-tight">
           Elite <span className="text-[#FF7F00]">Proof</span> for Elite Visionaries.
         </h3>
-        <p className="text-slate-400 text-lg md:text-xl font-medium leading-relaxed max-w-2xl mx-auto mb-14 uppercase tracking-widest opacity-80">
+        <p className="text-slate-400 text-base md:text-lg font-medium leading-relaxed max-w-2xl mx-auto mb-14 uppercase tracking-widest opacity-80">
           We don't just speak results; we document excellence. Join the league of brands dominating the digital landscape.
         </p>
         <button 

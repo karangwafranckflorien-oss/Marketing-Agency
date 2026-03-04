@@ -285,10 +285,10 @@ const Portfolio: React.FC<PortfolioProps> = ({ selectedCategory, onClearFilter }
                 {selectedCategory ? `${selectedCategory} Proof` : 'Verified Transformations'}
               </span>
             </div>
-            <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter text-slate-900 leading-[0.85] mb-10">
+            <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tighter text-slate-900 leading-[0.85] mb-10">
               Visual <span className="text-[#0077FF]">Proof.</span>
             </h2>
-            <p className="text-slate-400 text-sm font-black uppercase tracking-[0.5em] max-w-2xl opacity-70">
+            <p className="text-slate-400 text-xs font-black uppercase tracking-[0.3em] max-w-2xl opacity-70">
               Original native dimensions documentation of market-leading results.
             </p>
           </motion.div>

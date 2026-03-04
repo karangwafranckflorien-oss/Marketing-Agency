@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-4xl md:text-7xl lg:text-[7.5rem] font-black mb-12 leading-[0.9] tracking-tighter text-slate-900"
+          className="text-4xl md:text-6xl lg:text-[6.5rem] font-black mb-12 leading-[0.9] tracking-tighter text-slate-900"
         >
           Everyone Markets. <br />
           We make it <span className="text-[#0077FF]">Elite.</span>
@@ -31,7 +31,7 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-base md:text-xl text-slate-500 max-w-3xl mx-auto mb-16 leading-relaxed font-light uppercase tracking-[0.3em] opacity-90"
+          className="text-sm md:text-lg text-slate-500 max-w-3xl mx-auto mb-16 leading-relaxed font-light uppercase tracking-[0.2em] opacity-90"
         >
           Empowering <span className="text-slate-900 font-black">Visionaries, Hotels, and Schools</span> with Global Standards of Rwandan Excellence.
         </motion.p>

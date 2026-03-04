@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Phone, Mail, Instagram, MessageCircle, ChevronRight, Globe } from 'lucide-react';
 
 // EDIT THIS ADDRESS TO UPLOAD YOUR LOGO
-const LOGO_URL = "https://i.imgur.com/lNYQh3G.png"; 
+const LOGO_URL = "https://i.imgur.com/lYz6Y6B.png"; 
 
 const TikTokIcon = ({ size = 20, className = "" }) => (
   <svg 
@@ -59,8 +59,8 @@ const Footer: React.FC = () => {
              )}
           </div>
           <div className="flex flex-col items-center">
-            <span className="text-3xl md:text-5xl font-black tracking-[-0.05em] text-slate-900 uppercase leading-none">Arise AI <span className="text-[#0077FF]">Marketing</span></span>
-            <span className="text-sm font-bold tracking-[0.6em] text-[#FF7F00] uppercase mt-3 border-t border-orange-50 pt-3">Agency</span>
+            <span className="text-3xl md:text-4xl font-black tracking-[-0.05em] text-slate-900 uppercase leading-none">Arise AI <span className="text-[#0077FF]">Marketing</span></span>
+            <span className="text-xs font-bold tracking-[0.4em] text-[#FF7F00] uppercase mt-3 border-t border-orange-50 pt-3">Agency</span>
           </div>
         </div>
 

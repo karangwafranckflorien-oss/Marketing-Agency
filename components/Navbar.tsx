@@ -8,7 +8,7 @@ interface NavbarProps {
   isScrolled: boolean;
 }
 
-const LOGO_URL = "https://i.imgur.com/lNYQh3G.png"; 
+const LOGO_URL = "https://i.imgur.com/lYz6Y6B.png"; 
 
 const TikTokIcon = ({ size = 20, className = "" }) => (
   <svg 
@@ -86,8 +86,8 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
             <img src={LOGO_URL} alt="Arise AI" className="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300" />
           </div>
           <div className="flex flex-col -space-y-1">
-            <span className="text-lg md:text-2xl font-black tracking-[-0.03em] text-slate-900 uppercase leading-none">Arise AI <span className="text-[#0077FF]">Marketing</span></span>
-            <span className="text-[10px] font-black tracking-[0.5em] text-[#FF7F00] uppercase mt-2">Agency</span>
+            <span className="text-lg md:text-xl font-black tracking-[-0.03em] text-slate-900 uppercase leading-none">Arise AI <span className="text-[#0077FF]">Marketing</span></span>
+            <span className="text-[9px] font-black tracking-[0.3em] text-[#FF7F00] uppercase mt-2">Agency</span>
           </div>
         </Link>
 
