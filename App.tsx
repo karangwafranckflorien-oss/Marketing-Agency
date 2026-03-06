@@ -32,12 +32,13 @@ const HomePage: React.FC<{ onSelectIndustry: (cat: string) => void, activeCatego
       <Services onSelectIndustry={onSelectIndustry} />
     </section>
 
-    <section id="agency" className="py-24 relative overflow-hidden bg-slate-50/10">
+    <section id="agency" className="py-24 relative overflow-hidden bg-[#355271]">
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-[120px] -z-10" />
       <AgencyOverview />
     </section>
 
     <section id="assistant" className="py-24 relative overflow-hidden bg-slate-50/20">
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-500/5 rounded-full blur-[120px] -z-10" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#CE5826]/5 rounded-full blur-[120px] -z-10" />
       <MarketingAssistant />
     </section>
 
@@ -54,7 +55,8 @@ const HomePage: React.FC<{ onSelectIndustry: (cat: string) => void, activeCatego
       <Pricing />
     </section>
 
-    <section id="testimonials" className="py-24 relative overflow-hidden bg-slate-50/30">
+    <section id="testimonials" className="py-24 relative overflow-hidden bg-[#355271]">
+      <div className="absolute top-0 left-0 w-full h-full bg-black/10 -z-10" />
       <Testimonials />
     </section>
   </main>

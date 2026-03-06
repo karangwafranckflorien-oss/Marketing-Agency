@@ -156,7 +156,7 @@ const PortfolioMedia: React.FC<{ item: PortfolioItem; onOpen: (item: PortfolioIt
         <div className="absolute bottom-8 left-8 right-8 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-3 group-hover:translate-y-0">
           <div className="px-6 py-4 bg-black/50 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl">
             <span className="text-[10px] md:text-[11px] font-black text-white tracking-[0.5em] uppercase leading-none block">{item.professionalLabel}</span>
-            <span className="text-[9px] font-bold text-[#FF7F00] tracking-[0.3em] uppercase mt-2 block opacity-90">{item.category} RECORD</span>
+            <span className="text-[9px] font-bold text-[#CE5826] tracking-[0.3em] uppercase mt-2 block opacity-90">{item.category} RECORD</span>
           </div>
         </div>
 
@@ -186,7 +186,7 @@ const Lightbox: React.FC<{ item: PortfolioItem | null; onClose: () => void }> = 
       onClick={onClose}
     >
       <button 
-        className="absolute top-10 right-10 z-[120] w-14 h-14 bg-white/10 hover:bg-[#FF7F00] rounded-full flex items-center justify-center text-white border border-white/10 transition-all hover:rotate-90 shadow-2xl"
+        className="absolute top-10 right-10 z-[120] w-14 h-14 bg-white/10 hover:bg-[#CE5826] rounded-full flex items-center justify-center text-white border border-white/10 transition-all hover:rotate-90 shadow-2xl"
         onClick={(e) => { e.stopPropagation(); onClose(); }}
       >
         <X size={24} />
@@ -220,11 +220,11 @@ const Lightbox: React.FC<{ item: PortfolioItem | null; onClose: () => void }> = 
         <div className="w-full md:w-[520px] flex-shrink-0 p-12 md:p-20 text-left bg-[#0c0c0c] flex flex-col justify-center border-t md:border-t-0 md:border-l border-white/5">
           <div className="space-y-14">
             <div className="flex items-center space-x-6">
-               <div className="w-20 h-20 bg-[#FF7F00]/10 rounded-[2rem] flex items-center justify-center border border-[#FF7F00]/20 shadow-inner">
-                 <ShieldCheck size={36} className="text-[#FF7F00]" />
+               <div className="w-20 h-20 bg-[#CE5826]/10 rounded-[2rem] flex items-center justify-center border border-[#CE5826]/20 shadow-inner">
+                 <ShieldCheck size={36} className="text-[#CE5826]" />
                </div>
                <div className="flex flex-col">
-                 <span className="text-[11px] font-black text-[#FF7F00] uppercase tracking-[0.7em]">ELITE DOCUMENT</span>
+                 <span className="text-[11px] font-black text-[#CE5826] uppercase tracking-[0.7em]">ELITE DOCUMENT</span>
                  <span className="text-[15px] font-bold text-white tracking-[0.3em] mt-2 uppercase">{item.professionalLabel}</span>
                </div>
             </div>
@@ -239,7 +239,7 @@ const Lightbox: React.FC<{ item: PortfolioItem | null; onClose: () => void }> = 
               href="https://wa.me/250794785167"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center space-x-5 w-full py-10 bg-white text-black rounded-[2.5rem] font-black text-[13px] uppercase tracking-[0.5em] hover:bg-[#0077FF] hover:text-white transition-all shadow-2xl active:scale-95"
+              className="flex items-center justify-center space-x-5 w-full py-10 bg-white text-black rounded-[2.5rem] font-black text-[13px] uppercase tracking-[0.5em] hover:bg-[#357FA6] hover:text-white transition-all shadow-2xl active:scale-95"
             >
               <ExternalLink size={20} />
               <span>Elevate Your Brand</span>
@@ -280,13 +280,13 @@ const Portfolio: React.FC<PortfolioProps> = ({ selectedCategory, onClearFilter }
             className="max-w-4xl"
           >
             <div className="flex items-center justify-center md:justify-start space-x-6 mb-6">
-              <div className="w-16 h-1.5 bg-[#FF7F00] rounded-full" />
-              <span className="text-[12px] font-black uppercase tracking-[0.6em] text-[#FF7F00]">
+              <div className="w-16 h-1.5 bg-[#CE5826] rounded-full" />
+              <span className="text-[12px] font-black uppercase tracking-[0.6em] text-[#CE5826]">
                 {selectedCategory ? `${selectedCategory} Proof` : 'Verified Transformations'}
               </span>
             </div>
             <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tighter text-slate-900 leading-[0.85] mb-10">
-              Visual <span className="text-[#0077FF]">Proof.</span>
+              Visual <span className="text-[#357FA6]">Proof.</span>
             </h2>
             <p className="text-slate-400 text-xs font-black uppercase tracking-[0.3em] max-w-2xl opacity-70">
               Original native dimensions documentation of market-leading results.

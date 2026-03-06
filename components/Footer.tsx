@@ -60,24 +60,24 @@ const Footer: React.FC = () => {
              )}
           </div>
           <div className="flex flex-col items-center">
-            <span className="text-3xl md:text-4xl font-black tracking-[-0.05em] text-slate-900 uppercase leading-none">Arise AI <span className="text-[#0077FF]">Marketing</span></span>
-            <span className="text-xs font-bold tracking-[0.4em] text-[#FF7F00] uppercase mt-3 border-t border-orange-50 pt-3">Agency</span>
+            <span className="text-3xl md:text-4xl font-black tracking-[-0.05em] text-slate-900 uppercase leading-none">Arise AI <span className="text-[#357FA6]">Marketing</span></span>
+            <span className="text-xs font-bold tracking-[0.4em] text-[#CE5826] uppercase mt-3 border-t border-orange-50 pt-3">Agency</span>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-24 max-w-5xl mx-auto">
           {/* Quick Links Column */}
           <div className="flex flex-col items-center md:items-start">
-            <h4 className="text-[#FF7F00] font-black uppercase tracking-[0.4em] text-xs mb-8">Navigation</h4>
+            <h4 className="text-[#CE5826] font-black uppercase tracking-[0.4em] text-xs mb-8">Navigation</h4>
             <ul className="space-y-5 flex flex-col items-center md:items-start">
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <Link 
                     to={link.href} 
                     onClick={(e) => handleLinkClick(e, link)}
-                    className="group flex items-center text-sm font-bold text-slate-600 hover:text-[#0077FF] transition-colors"
+                    className="group flex items-center text-sm font-bold text-slate-600 hover:text-[#357FA6] transition-colors"
                   >
-                    <ChevronRight size={16} className="mr-3 text-[#FF7F00] opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0" />
+                    <ChevronRight size={16} className="mr-3 text-[#CE5826] opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0" />
                     {link.name}
                   </Link>
                 </li>
@@ -87,10 +87,10 @@ const Footer: React.FC = () => {
 
           {/* Contact Column */}
           <div className="flex flex-col items-center md:items-start">
-            <h4 className="text-[#FF7F00] font-black uppercase tracking-[0.4em] text-xs mb-8">Direct Contact</h4>
+            <h4 className="text-[#CE5826] font-black uppercase tracking-[0.4em] text-xs mb-8">Direct Contact</h4>
             <div className="space-y-8">
               <a href="mailto:ariseaimarketingagency@gmail.com" className="flex items-center space-x-5 group justify-center md:justify-start">
-                <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center group-hover:bg-[#0077FF] transition-all duration-300 border border-slate-100 shadow-sm">
+                <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center group-hover:bg-[#357FA6] transition-all duration-300 border border-slate-100 shadow-sm">
                   <Mail size={20} className="text-slate-600 group-hover:text-white" />
                 </div>
                 <div className="flex flex-col">
@@ -108,7 +108,7 @@ const Footer: React.FC = () => {
                 </div>
               </div>
               <a href="https://www.ariseaiagency.com/" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-5 group justify-center md:justify-start">
-                <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center border border-slate-100 shadow-sm group-hover:bg-[#FF7F00] transition-all">
+                <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center border border-slate-100 shadow-sm group-hover:bg-[#CE5826] transition-all">
                   <Globe size={20} className="text-slate-600 group-hover:text-white" />
                 </div>
                 <div className="flex flex-col">
@@ -121,7 +121,7 @@ const Footer: React.FC = () => {
 
           {/* Social Column */}
           <div className="flex flex-col items-center md:items-start">
-            <h4 className="text-[#FF7F00] font-black uppercase tracking-[0.4em] text-xs mb-8">Follow Our Growth</h4>
+            <h4 className="text-[#CE5826] font-black uppercase tracking-[0.4em] text-xs mb-8">Follow Our Growth</h4>
             <div className="flex space-x-5">
               <a 
                 href="https://wa.me/250794785167" 
@@ -156,7 +156,7 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="pt-12 border-t border-slate-100 text-center">
-          <p className="text-[#FF7F00] text-sm font-black tracking-[0.3em] uppercase">
+          <p className="text-[#CE5826] text-sm font-black tracking-[0.3em] uppercase">
             © 2026 Arise Digital Solutions Ltd. All Rights Reserved.
           </p>
           <div className="flex items-center justify-center space-x-3 mt-6">

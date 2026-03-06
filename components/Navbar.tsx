@@ -87,8 +87,8 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
             <img src={LOGO_URL} alt="Arise AI" className="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300" />
           </div>
           <div className="flex flex-col -space-y-1">
-            <span className="text-lg md:text-xl font-black tracking-[-0.03em] text-slate-900 uppercase leading-none">Arise AI <span className="text-[#0077FF]">Marketing</span></span>
-            <span className="text-[9px] font-black tracking-[0.3em] text-[#FF7F00] uppercase mt-2">Agency</span>
+            <span className={`text-lg md:text-xl font-black tracking-[-0.03em] uppercase leading-none transition-colors duration-300 ${isScrolled ? 'text-slate-900' : 'text-slate-900'}`}>Arise AI <span className={isScrolled ? 'text-[#357FA6]' : 'text-[#357FA6]'}>Marketing</span></span>
+            <span className={`text-[9px] font-black tracking-[0.3em] uppercase mt-2 transition-colors duration-300 ${isScrolled ? 'text-[#CE5826]' : 'text-[#CE5826]'}`}>Agency</span>
           </div>
         </Link>
 
@@ -100,17 +100,19 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
               to={link.href}
               onClick={(e) => handleLinkClick(e, link)}
               className={`text-[11px] font-black tracking-[0.2em] transition-all duration-300 uppercase relative py-1
-                ${(link.isHash && activeSection === link.section) || (!link.isHash && location.pathname === link.href) ? 'text-[#FF7F00]' : 'text-slate-700 hover:text-slate-900'}`}
+                ${(link.isHash && activeSection === link.section) || (!link.isHash && location.pathname === link.href) 
+                  ? 'text-[#CE5826]' 
+                  : 'text-slate-700 hover:text-slate-900'}`}
             >
               {link.name}
               {((link.isHash && activeSection === link.section) || (!link.isHash && location.pathname === link.href)) && (
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#FF7F00] rounded-full" />
+                <span className="absolute bottom-0 left-0 w-full h-0.5 rounded-full bg-[#CE5826]" />
               )}
             </Link>
           ))}
           <Link 
             to="/training"
-            className="px-6 py-3 bg-slate-900 hover:bg-[#FF7F00] text-white font-black rounded-xl text-[10px] tracking-[0.2em] transition-all duration-300 shadow-xl shadow-slate-900/10 uppercase flex items-center"
+            className="px-6 py-3 bg-slate-900 hover:bg-[#CE5826] text-white font-black rounded-xl text-[10px] tracking-[0.2em] transition-all duration-300 shadow-xl shadow-slate-900/10 uppercase flex items-center"
           >
             <GraduationCap size={14} className="mr-2" />
             Join Training
@@ -163,7 +165,7 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
                     to={link.href} 
                     onClick={(e) => handleLinkClick(e, link)}
                     className={`text-4xl font-black tracking-tighter uppercase transition-all block
-                      ${((link.isHash && activeSection === link.section) || (!link.isHash && location.pathname === link.href)) ? 'text-[#FF7F00] translate-x-4' : 'text-slate-900 opacity-60'}`}
+                      ${((link.isHash && activeSection === link.section) || (!link.isHash && location.pathname === link.href)) ? 'text-[#CE5826] translate-x-4' : 'text-slate-900 opacity-60'}`}
                   >
                     {link.name}
                   </Link>
@@ -175,7 +177,7 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
               <Link 
                 to="/training"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="w-full text-center px-10 py-8 bg-[#FF7F00] text-white font-black rounded-[2.5rem] text-xs tracking-[0.4em] uppercase shadow-2xl shadow-orange-500/20 flex items-center justify-center"
+                className="w-full text-center px-10 py-8 bg-[#CE5826] text-white font-black rounded-[2.5rem] text-xs tracking-[0.4em] uppercase shadow-2xl shadow-orange-500/20 flex items-center justify-center"
               >
                 <GraduationCap size={20} className="mr-3" />
                 Join Training Program

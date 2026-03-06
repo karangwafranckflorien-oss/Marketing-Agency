@@ -67,11 +67,11 @@ const Testimonials: React.FC = () => {
     <div className="container mx-auto px-6">
       <div className="text-center mb-16">
         <div className="inline-flex items-center space-x-4 px-8 py-3 bg-orange-50 rounded-full border border-orange-100 mb-6">
-          <Quote size={18} className="text-[#FF7F00]" />
-          <span className="text-xs font-black uppercase tracking-[0.4em] text-[#FF7F00]">Voice of the Visionaries</span>
+          <Quote size={18} className="text-[#CE5826]" />
+          <span className="text-xs font-black uppercase tracking-[0.4em] text-[#CE5826]">Voice of the Visionaries</span>
         </div>
-        <h2 className="text-4xl md:text-5xl font-black mb-6 uppercase tracking-tight text-slate-900">Elite <span className="text-[#0077FF]">Feelings</span></h2>
-        <p className="text-slate-500 max-w-2xl mx-auto text-base md:text-lg font-medium uppercase tracking-widest leading-relaxed">
+        <h2 className="text-4xl md:text-5xl font-black mb-6 uppercase tracking-tight text-white">Elite <span className="text-[#357FA6]">Feelings</span></h2>
+        <p className="text-slate-300 max-w-2xl mx-auto text-base md:text-lg font-medium uppercase tracking-widest leading-relaxed">
           The transformation wall. Real feedback from those who chose market dominance.
         </p>
       </div>
@@ -82,12 +82,12 @@ const Testimonials: React.FC = () => {
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="p-10 md:p-14 bg-white rounded-[3.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.03)] border border-slate-100 relative overflow-hidden"
+          className="p-10 md:p-14 bg-white/5 backdrop-blur-md rounded-[3.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.03)] border border-white/10 relative overflow-hidden"
         >
-          <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#0077FF]/5 rounded-full blur-[80px]" />
+          <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#357FA6]/5 rounded-full blur-[80px]" />
           <div className="relative z-10">
-            <h3 className="text-2xl md:text-3xl font-black mb-10 uppercase tracking-tighter text-slate-900">
-              Share Your <span className="text-[#FF7F00]">Story</span>
+            <h3 className="text-2xl md:text-3xl font-black mb-10 uppercase tracking-tighter text-white">
+              Share Your <span className="text-[#CE5826]">Story</span>
             </h3>
             
             <form onSubmit={handleSubmit} className="space-y-10">
@@ -98,7 +98,7 @@ const Testimonials: React.FC = () => {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="e.g. Elite Ventures Africa"
-                  className="w-full px-8 py-6 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:border-[#0077FF] transition-all font-bold text-slate-900"
+                  className="w-full px-8 py-6 bg-white/10 border border-white/10 rounded-2xl focus:outline-none focus:border-[#357FA6] transition-all font-bold text-white placeholder:text-slate-500"
                   required
                 />
               </div>
@@ -110,7 +110,7 @@ const Testimonials: React.FC = () => {
                   onChange={(e) => setFeeling(e.target.value)}
                   rows={4}
                   placeholder="What was the result of your collaboration with Arise?"
-                  className="w-full px-8 py-6 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:border-[#0077FF] transition-all font-bold text-slate-900 resize-none"
+                  className="w-full px-8 py-6 bg-white/10 border border-white/10 rounded-2xl focus:outline-none focus:border-[#357FA6] transition-all font-bold text-white placeholder:text-slate-500 resize-none"
                   required
                 />
               </div>
@@ -123,9 +123,9 @@ const Testimonials: React.FC = () => {
                       key={star}
                       type="button"
                       onClick={() => setRating(star)}
-                      className={`transition-all transform hover:scale-125 ${rating >= star ? 'text-[#FF7F00]' : 'text-slate-200'}`}
+                      className={`transition-all transform hover:scale-125 ${rating >= star ? 'text-[#CE5826]' : 'text-slate-200'}`}
                     >
-                      <Star size={28} fill={rating >= star ? '#FF7F00' : 'transparent'} />
+                      <Star size={28} fill={rating >= star ? '#CE5826' : 'transparent'} />
                     </button>
                   ))}
                 </div>
@@ -134,7 +134,7 @@ const Testimonials: React.FC = () => {
               <button 
                 type="submit" 
                 disabled={isSubmitting}
-                className="w-full py-8 bg-slate-900 text-white rounded-[2rem] font-black text-sm uppercase tracking-[0.3em] hover:bg-[#0077FF] transition-all flex items-center justify-center space-x-5 shadow-xl active:scale-95 disabled:opacity-50"
+                className="w-full py-8 bg-slate-900 text-white rounded-[2rem] font-black text-sm uppercase tracking-[0.3em] hover:bg-[#357FA6] transition-all flex items-center justify-center space-x-5 shadow-xl active:scale-95 disabled:opacity-50"
               >
                 {isSubmitting ? (
                    <div className="flex items-center space-x-3">
@@ -175,26 +175,26 @@ const Testimonials: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.9 }}
-                className="p-10 bg-white border border-slate-100 rounded-[3rem] shadow-sm relative group"
+                className="p-10 bg-white/5 border border-white/10 rounded-[3rem] shadow-sm relative group"
               >
                 <div className="flex items-center justify-between mb-8">
                   <div className="flex items-center space-x-5">
-                    <div className="w-14 h-14 bg-slate-100 rounded-xl flex items-center justify-center text-slate-400">
+                    <div className="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center text-slate-400">
                       <User size={28} />
                     </div>
                     <div>
-                      <h4 className="font-black text-slate-900 uppercase text-sm tracking-widest">{rev.name}</h4>
+                      <h4 className="font-black text-white uppercase text-sm tracking-widest">{rev.name}</h4>
                       <p className="text-[11px] font-black text-slate-400 uppercase tracking-[0.4em] mt-1">{rev.date}</p>
                     </div>
                   </div>
                   <div className="flex space-x-1.5">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={16} className={i < rev.rating ? 'text-[#FF7F00]' : 'text-slate-100'} fill={i < rev.rating ? '#FF7F00' : 'transparent'} />
+                      <Star key={i} size={16} className={i < rev.rating ? 'text-[#CE5826]' : 'text-white/10'} fill={i < rev.rating ? '#CE5826' : 'transparent'} />
                     ))}
                   </div>
                 </div>
                 
-                <p className="text-slate-700 text-base md:text-lg font-bold leading-relaxed mb-8 italic">
+                <p className="text-slate-200 text-base md:text-lg font-bold leading-relaxed mb-8 italic">
                   "{rev.feeling}"
                 </p>
 
@@ -213,7 +213,7 @@ const Testimonials: React.FC = () => {
           </AnimatePresence>
           
           {reviews.length === 0 && (
-            <div className="text-center py-40 opacity-30">
+            <div className="text-center py-40 opacity-30 text-white">
               <MessageSquare size={80} className="mx-auto mb-8" />
               <h4 className="text-xl font-black uppercase tracking-[0.4em]">Empty Wall</h4>
               <p className="text-sm font-black uppercase tracking-widest mt-4">Waiting for the next visionary to share their story.</p>
