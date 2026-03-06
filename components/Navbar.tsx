@@ -31,9 +31,10 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
   const navLinks = [
     { name: 'Home', href: '/', isHash: true, section: 'hero' },
     { name: 'Industries', href: '/#services', isHash: true, section: 'services' },
+    { name: 'Agency', href: '/#agency', isHash: true, section: 'agency' },
+    { name: 'Assistant', href: '/#assistant', isHash: true, section: 'assistant' },
     { name: 'Portfolio', href: '/#portfolio', isHash: true, section: 'portfolio' },
     { name: 'Pricing', href: '/#pricing', isHash: true, section: 'pricing' },
-    { name: 'Training', href: '/training', isHash: false },
     { name: 'Contact', href: '/#footer', isHash: true, section: 'footer' },
   ];
 
@@ -92,13 +93,13 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden lg:flex items-center space-x-10">
+        <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
           {navLinks.map((link) => (
             <Link 
               key={link.name} 
               to={link.href}
               onClick={(e) => handleLinkClick(e, link)}
-              className={`text-[12px] font-black tracking-[0.25em] transition-all duration-300 uppercase relative py-1
+              className={`text-[11px] font-black tracking-[0.2em] transition-all duration-300 uppercase relative py-1
                 ${(link.isHash && activeSection === link.section) || (!link.isHash && location.pathname === link.href) ? 'text-[#FF7F00]' : 'text-slate-700 hover:text-slate-900'}`}
             >
               {link.name}
@@ -109,9 +110,9 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
           ))}
           <Link 
             to="/training"
-            className="px-8 py-4 bg-slate-900 hover:bg-[#FF7F00] text-white font-black rounded-xl text-[11px] tracking-[0.3em] transition-all duration-300 shadow-xl shadow-slate-900/10 uppercase flex items-center"
+            className="px-6 py-3 bg-slate-900 hover:bg-[#FF7F00] text-white font-black rounded-xl text-[10px] tracking-[0.2em] transition-all duration-300 shadow-xl shadow-slate-900/10 uppercase flex items-center"
           >
-            <GraduationCap size={16} className="mr-2" />
+            <GraduationCap size={14} className="mr-2" />
             Join Training
           </Link>
         </div>

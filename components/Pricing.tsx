@@ -80,8 +80,8 @@ const Pricing: React.FC = () => {
         <h2 className="text-4xl md:text-7xl font-black mb-10 uppercase tracking-tighter text-slate-900 leading-[0.85]">
           Elite <span className="text-[#FF7F00]">Rates.</span>
         </h2>
-        <p className="text-slate-500 max-w-2xl mx-auto text-base md:text-lg font-medium uppercase tracking-[0.2em] leading-relaxed mb-12">
-          Engineered for brands that prioritize growth and African excellence.
+        <p className="text-slate-600 max-w-3xl mx-auto text-base md:text-lg font-bold uppercase tracking-widest leading-relaxed mb-12 opacity-90">
+          Our investment tiers are strategically engineered to scale with your brand's ambitions. From high-impact single assets to comprehensive omni-channel dominance, we provide the elite infrastructure required for market leadership.
         </p>
         
         <div className="flex flex-col items-center">
@@ -136,33 +136,33 @@ const Pricing: React.FC = () => {
           <div className="w-20 h-2 bg-[#FF7F00] rounded-full" />
           <h3 className="text-3xl font-black uppercase tracking-tighter text-slate-900">Elite Retainers</h3>
         </div>
-        <div className="grid md:grid-cols-3 gap-12">
+        <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
           {monthlyPackages.map((pkg, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className={`p-14 rounded-[4.5rem] border-2 transition-all duration-700 relative flex flex-col ${pkg.color} ${pkg.featured ? 'scale-105 z-10' : 'bg-white shadow-sm'}`}
+              className={`p-10 lg:p-14 rounded-[3.5rem] lg:rounded-[4.5rem] border-2 transition-all duration-700 relative flex flex-col ${pkg.color} ${pkg.featured ? 'scale-100 lg:scale-105 z-10' : 'bg-white shadow-sm'}`}
             >
               {pkg.featured && (
-                <div className="absolute -top-7 left-1/2 -translate-x-1/2 px-10 py-3 bg-[#FF7F00] text-white rounded-full text-[10px] font-black uppercase tracking-[0.5em] shadow-2xl">
+                <div className="absolute -top-6 left-1/2 -translate-x-1/2 px-8 py-2.5 bg-[#FF7F00] text-white rounded-full text-[9px] font-black uppercase tracking-[0.4em] shadow-2xl whitespace-nowrap">
                   Market Leader's Choice
                 </div>
               )}
-              <div className="flex items-center justify-between mb-12">
-                <div className="p-6 bg-white rounded-[2rem] shadow-xl border border-slate-50">{pkg.icon}</div>
+              <div className="flex items-center justify-between mb-10 lg:mb-12">
+                <div className="p-5 lg:p-6 bg-white rounded-[1.5rem] lg:rounded-[2rem] shadow-xl border border-slate-50">{pkg.icon}</div>
                 <div className="text-right">
-                  <span className="text-[12px] font-black text-slate-400 uppercase tracking-widest block mb-2">Starts At</span>
-                  <span className="text-4xl font-black text-slate-900 tracking-tighter">{pkg.price}</span>
+                  <span className="text-[10px] lg:text-[12px] font-black text-slate-400 uppercase tracking-widest block mb-1 lg:mb-2">Starts At</span>
+                  <span className="text-3xl lg:text-4xl font-black text-slate-900 tracking-tighter">{pkg.price}</span>
                 </div>
               </div>
-              <h4 className="text-3xl font-black text-slate-900 uppercase tracking-tighter mb-10">{pkg.name}</h4>
-              <ul className="space-y-8 mb-16 flex-grow">
+              <h4 className="text-2xl lg:text-3xl font-black text-slate-900 uppercase tracking-tighter mb-8 lg:mb-10">{pkg.name}</h4>
+              <ul className="space-y-6 lg:space-y-8 mb-12 lg:mb-16 flex-grow">
                 {pkg.features.map((feature, i) => (
-                  <li key={i} className="flex items-start space-x-5">
-                    <CheckCircle2 size={22} className="text-[#0077FF] mt-1 flex-shrink-0" />
-                    <span className="text-[16px] font-bold text-slate-700 leading-snug">{feature}</span>
+                  <li key={i} className="flex items-start space-x-4 lg:space-x-5">
+                    <CheckCircle2 size={20} className="text-[#0077FF] mt-1 flex-shrink-0" />
+                    <span className="text-sm lg:text-[16px] font-black text-slate-900 leading-snug">{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -170,7 +170,7 @@ const Pricing: React.FC = () => {
                 href="https://wa.me/250794785167"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`flex items-center justify-center w-full py-8 rounded-[2.5rem] font-black text-sm uppercase tracking-[0.2em] transition-all shadow-2xl active:scale-95 ${pkg.featured ? 'bg-[#FF7F00] text-white hover:bg-slate-900' : 'bg-slate-900 text-white hover:bg-[#0077FF]'}`}
+                className={`flex items-center justify-center w-full py-6 lg:py-8 rounded-[2rem] lg:rounded-[2.5rem] font-black text-xs lg:text-sm uppercase tracking-[0.2em] transition-all shadow-2xl active:scale-95 ${pkg.featured ? 'bg-[#FF7F00] text-white hover:bg-slate-900' : 'bg-slate-900 text-white hover:bg-[#0077FF]'}`}
               >
                 Secure Retainer
               </a>

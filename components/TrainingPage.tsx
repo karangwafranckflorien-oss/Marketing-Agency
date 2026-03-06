@@ -50,7 +50,7 @@ const TrainingPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white pb-24">
       {/* Hero Section with Background */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-32">
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-48">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img 
@@ -63,16 +63,6 @@ const TrainingPage: React.FC = () => {
         </div>
 
         <div className="container mx-auto px-6 relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mb-8"
-          >
-            <span className="px-6 py-2 bg-[#FF7F00] text-white text-[10px] font-black uppercase tracking-[0.4em] rounded-full shadow-lg shadow-orange-500/20">
-              ChatGPT Pro • Gemini • Claude • Sora 2 • Leonardo.ai
-            </span>
-          </motion.div>
-
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -96,6 +86,27 @@ const TrainingPage: React.FC = () => {
             </span> <br />
             Economy.
           </motion.h1>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16"
+          >
+            <a 
+              href="https://wa.me/250794785167" 
+              target="_blank"
+              className="px-12 py-6 bg-slate-900 text-white font-black rounded-2xl text-xs tracking-[0.4em] uppercase flex items-center justify-center hover:bg-[#0077FF] transition-all shadow-2xl hover:scale-105 active:scale-95"
+            >
+              Apply via WhatsApp <ChevronRight className="ml-2" size={18} />
+            </a>
+            <a 
+              href="#fees" 
+              className="px-12 py-6 bg-white text-slate-900 border-2 border-slate-100 font-black rounded-2xl text-xs tracking-[0.4em] uppercase flex items-center justify-center hover:bg-slate-50 transition-all shadow-xl hover:scale-105 active:scale-95"
+            >
+              View Training Fees
+            </a>
+          </motion.div>
           
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -189,7 +200,7 @@ const TrainingPage: React.FC = () => {
       </section>
 
       {/* Schedule & Fees */}
-      <section className="bg-slate-900 py-32 text-white overflow-hidden relative">
+      <section id="fees" className="bg-slate-900 py-32 text-white overflow-hidden relative">
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#0077FF]/10 rounded-full blur-[120px]" />
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">

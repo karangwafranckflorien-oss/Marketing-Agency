@@ -25,6 +25,7 @@ const Footer: React.FC = () => {
   const quickLinks = [
     { name: 'Home', href: '/', isHash: true, section: 'hero' },
     { name: 'Industries', href: '/#services', isHash: true, section: 'services' },
+    { name: 'Agency', href: '/#agency', isHash: true, section: 'agency' },
     { name: 'Portfolio', href: '/#portfolio', isHash: true, section: 'portfolio' },
     { name: 'Pricing', href: '/#pricing', isHash: true, section: 'pricing' },
     { name: 'Training', href: '/training', isHash: false },

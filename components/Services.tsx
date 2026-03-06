@@ -63,21 +63,52 @@ const Services: React.FC<ServicesProps> = ({ onSelectIndustry }) => {
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="mt-32 p-12 md:p-20 rounded-[4rem] bg-slate-900 text-white relative overflow-hidden text-center max-w-5xl mx-auto border border-white/5"
+        className="mt-32 p-12 md:p-20 rounded-[4rem] bg-white border-2 border-slate-100 shadow-2xl relative overflow-hidden text-center max-w-5xl mx-auto"
       >
-        <div className="absolute top-0 right-0 w-80 h-80 bg-[#0077FF]/10 rounded-full blur-[100px] -z-10" />
-        <h3 className="text-3xl md:text-4xl font-black mb-10 uppercase tracking-tighter leading-tight">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#0077FF]/5 rounded-full blur-[100px] -z-10" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#FF7F00]/5 rounded-full blur-[100px] -z-10" />
+        
+        <div className="inline-flex items-center space-x-4 px-8 py-3 bg-slate-50 rounded-full border border-slate-100 mb-10">
+          <ShieldCheck size={18} className="text-[#0077FF]" />
+          <span className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400">Verified Market Authority</span>
+        </div>
+
+        <h3 className="text-3xl md:text-5xl font-black mb-10 uppercase tracking-tighter leading-tight text-slate-900">
           Elite <span className="text-[#FF7F00]">Proof</span> for Elite Visionaries.
         </h3>
-        <p className="text-slate-400 text-base md:text-lg font-medium leading-relaxed max-w-2xl mx-auto mb-14 uppercase tracking-widest opacity-80">
-          We don't just speak results; we document excellence. Join the league of brands dominating the digital landscape.
+        
+        <p className="text-slate-800 text-base md:text-xl font-bold leading-relaxed max-w-3xl mx-auto mb-14 uppercase tracking-widest opacity-90">
+          At Arise AI Marketing Agency, we don't just promise results—we engineer them. Our documentation process captures the essence of your brand's excellence, transforming it into high-impact digital assets that command market authority.
         </p>
+
+        <div className="flex flex-col md:flex-row items-center justify-center gap-12 mb-16">
+          <div className="flex items-center space-x-4 text-left">
+            <div className="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center text-[#0077FF] shadow-inner">
+              <Zap size={28} />
+            </div>
+            <div>
+              <span className="block text-[10px] font-black text-slate-400 uppercase tracking-widest">AI-Driven</span>
+              <span className="block text-sm font-black text-slate-900 uppercase">Content Engineering</span>
+            </div>
+          </div>
+          <div className="w-px h-12 bg-slate-100 hidden md:block" />
+          <div className="flex items-center space-x-4 text-left">
+            <div className="w-14 h-14 rounded-2xl bg-orange-50 flex items-center justify-center text-[#FF7F00] shadow-inner">
+              <Building2 size={28} />
+            </div>
+            <div>
+              <span className="block text-[10px] font-black text-slate-400 uppercase tracking-widest">Strategic</span>
+              <span className="block text-sm font-black text-slate-900 uppercase">Market Positioning</span>
+            </div>
+          </div>
+        </div>
+
         <button 
           onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
-          className="group inline-flex items-center space-x-4 px-12 py-6 bg-[#0077FF] text-white rounded-2xl font-black text-xs uppercase tracking-[0.4em] hover:bg-white hover:text-slate-900 transition-all shadow-xl active:scale-95"
+          className="group inline-flex items-center space-x-6 px-14 py-8 bg-slate-900 text-white rounded-[2.5rem] font-black text-xs uppercase tracking-[0.5em] hover:bg-[#0077FF] transition-all shadow-2xl active:scale-95"
         >
           <span>Review Investment Plans</span>
-          <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
+          <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
         </button>
       </motion.div>
     </div>
