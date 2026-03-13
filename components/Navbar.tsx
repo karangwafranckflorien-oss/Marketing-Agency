@@ -80,7 +80,7 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'glass-nav py-4 shadow-lg' : 'bg-transparent py-8'}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 glass-nav ${isScrolled ? 'py-4 shadow-lg' : 'py-6 shadow-md'}`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <Link to="/" onClick={(e) => handleLinkClick(e, navLinks[0])} className="flex items-center space-x-4 group">
           <div className="w-16 md:w-20 h-16 md:h-20 flex items-center justify-center overflow-hidden">
