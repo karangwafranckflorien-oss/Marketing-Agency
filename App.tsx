@@ -32,6 +32,14 @@ const HomePage: React.FC<{ onSelectIndustry: (cat: string) => void, activeCatego
       <Services onSelectIndustry={onSelectIndustry} />
     </section>
 
+    <section id="portfolio" className="py-24 relative overflow-hidden bg-slate-50/50">
+      <div className="absolute top-1/2 left-0 w-80 h-80 bg-blue-500/5 rounded-full blur-[120px] -z-10" />
+      <Portfolio 
+        selectedCategory={activeCategory} 
+        onClearFilter={() => setActiveCategory(null)} 
+      />
+    </section>
+
     <section id="agency" className="py-24 relative overflow-hidden bg-[#355271]">
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-[120px] -z-10" />
       <AgencyOverview />
@@ -40,14 +48,6 @@ const HomePage: React.FC<{ onSelectIndustry: (cat: string) => void, activeCatego
     <section id="assistant" className="py-24 relative overflow-hidden bg-slate-50/20">
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#CE5826]/5 rounded-full blur-[120px] -z-10" />
       <MarketingAssistant />
-    </section>
-
-    <section id="portfolio" className="py-24 relative overflow-hidden bg-slate-50/50">
-      <div className="absolute top-1/2 left-0 w-80 h-80 bg-blue-500/5 rounded-full blur-[120px] -z-10" />
-      <Portfolio 
-        selectedCategory={activeCategory} 
-        onClearFilter={() => setActiveCategory(null)} 
-      />
     </section>
 
     <section id="pricing" className="py-24 relative overflow-hidden bg-white">

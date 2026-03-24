@@ -90,7 +90,22 @@ const professionalLabels = [
 ];
 
 const generatePortfolioData = (): PortfolioItem[] => {
-  const data: PortfolioItem[] = [];
+  const data: PortfolioItem[] = [
+    {
+      id: 'recent-1',
+      category: 'NGOs',
+      type: 'image',
+      src: 'https://i.imgur.com/6Y9gbHp.jpeg',
+      professionalLabel: 'IWACU RECOVERY CENTRE - EID FLYER'
+    },
+    {
+      id: 'recent-2',
+      category: 'Companies',
+      type: 'image',
+      src: 'https://i.imgur.com/ShqXeH4.jpeg',
+      professionalLabel: 'PREMIUM BUSINESS CARD DESIGN'
+    }
+  ];
   categories.forEach((cat) => {
     for (let i = 1; i <= 6; i++) {
       data.push({
@@ -155,7 +170,7 @@ const PortfolioMedia: React.FC<{ item: PortfolioItem; onOpen: (item: PortfolioIt
         
         <div className="absolute bottom-8 left-8 right-8 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-3 group-hover:translate-y-0">
           <div className="px-6 py-4 bg-black/50 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl">
-            <span className="text-[10px] md:text-[11px] font-black text-white tracking-[0.5em] uppercase leading-none block">{item.professionalLabel}</span>
+            <span className="text-[10px] md:text-[11px] font-black text-white tracking-[0.2em] uppercase leading-tight block">{item.professionalLabel}</span>
             <span className="text-[9px] font-bold text-[#CE5826] tracking-[0.3em] uppercase mt-2 block opacity-90">{item.category} RECORD</span>
           </div>
         </div>
@@ -217,34 +232,42 @@ const Lightbox: React.FC<{ item: PortfolioItem | null; onClose: () => void }> = 
           )}
         </div>
 
-        <div className="w-full md:w-[520px] flex-shrink-0 p-12 md:p-20 text-left bg-[#0c0c0c] flex flex-col justify-center border-t md:border-t-0 md:border-l border-white/5">
-          <div className="space-y-14">
-            <div className="flex items-center space-x-6">
-               <div className="w-20 h-20 bg-[#CE5826]/10 rounded-[2rem] flex items-center justify-center border border-[#CE5826]/20 shadow-inner">
-                 <ShieldCheck size={36} className="text-[#CE5826]" />
-               </div>
-               <div className="flex flex-col">
-                 <span className="text-[11px] font-black text-[#CE5826] uppercase tracking-[0.7em]">ELITE DOCUMENT</span>
-                 <span className="text-[15px] font-bold text-white tracking-[0.3em] mt-2 uppercase">{item.professionalLabel}</span>
-               </div>
+        <div className="w-full md:w-[520px] flex-shrink-0 bg-[#0c0c0c] flex flex-col border-t md:border-t-0 md:border-l border-white/5">
+          <div className="flex-grow overflow-y-auto p-12 md:p-20 flex flex-col justify-start min-h-0">
+            <div className="space-y-14 py-10 md:py-20">
+              <div className="flex flex-col space-y-4">
+                <div className="flex items-center space-x-3 opacity-50">
+                  <div className="w-1 h-1 bg-[#CE5826] rounded-full" />
+                  <span className="text-[10px] font-black text-white uppercase tracking-[0.4em]">{item.category} CATEGORY</span>
+                </div>
+                <div className="flex items-center space-x-6">
+                   <div className="w-20 h-20 bg-[#CE5826]/10 rounded-[2rem] flex items-center justify-center border border-[#CE5826]/20 shadow-inner">
+                     <ShieldCheck size={36} className="text-[#CE5826]" />
+                   </div>
+                   <div className="flex flex-col">
+                     <span className="text-[11px] font-black text-[#CE5826] uppercase tracking-[0.5em]">ELITE DOCUMENT</span>
+                     <span className="text-[15px] font-bold text-white tracking-[0.1em] mt-2 uppercase">{item.professionalLabel}</span>
+                   </div>
+                </div>
+              </div>
+
+              <p className="text-zinc-500 text-sm md:text-lg font-medium leading-relaxed uppercase tracking-[0.1em] max-w-sm">
+                Premium market documentation engineered for visionaries. This {item.category.toLowerCase()} asset exemplifies the pinnacle of <span className="text-white">African Digital Excellence</span>.
+              </p>
+
+              <div className="pt-10">
+                <a 
+                  href="https://wa.me/250794785167"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center space-x-4 w-full py-6 bg-white text-black rounded-[2rem] font-black text-[11px] uppercase tracking-[0.3em] hover:bg-[#357FA6] hover:text-white transition-all shadow-2xl active:scale-95"
+                >
+                  <ExternalLink size={18} />
+                  <span>Elevate Your Brand</span>
+                </a>
+                <p className="mt-8 text-[9px] font-black text-center text-zinc-700 uppercase tracking-[0.5em] opacity-60">Arise AI Marketing Agency • Rwanda</p>
+              </div>
             </div>
-
-            <p className="text-zinc-500 text-sm md:text-lg font-medium leading-relaxed uppercase tracking-[0.1em] max-w-sm">
-              Premium market documentation engineered for visionaries. This {item.category.toLowerCase()} asset exemplifies the pinnacle of <span className="text-white">African Digital Excellence</span>.
-            </p>
-          </div>
-
-          <div className="mt-24">
-            <a 
-              href="https://wa.me/250794785167"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center space-x-5 w-full py-10 bg-white text-black rounded-[2.5rem] font-black text-[13px] uppercase tracking-[0.5em] hover:bg-[#357FA6] hover:text-white transition-all shadow-2xl active:scale-95"
-            >
-              <ExternalLink size={20} />
-              <span>Elevate Your Brand</span>
-            </a>
-            <p className="mt-10 text-[10px] font-black text-center text-zinc-700 uppercase tracking-[0.6em] opacity-60">Arise AI Marketing Agency • Rwanda</p>
           </div>
         </div>
       </motion.div>

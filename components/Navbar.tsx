@@ -31,9 +31,9 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
   const navLinks = [
     { name: 'Home', href: '/', isHash: true, section: 'hero' },
     { name: 'Industries', href: '/#services', isHash: true, section: 'services' },
+    { name: 'Portfolio', href: '/#portfolio', isHash: true, section: 'portfolio' },
     { name: 'Agency', href: '/#agency', isHash: true, section: 'agency' },
     { name: 'Assistant', href: '/#assistant', isHash: true, section: 'assistant' },
-    { name: 'Portfolio', href: '/#portfolio', isHash: true, section: 'portfolio' },
     { name: 'Pricing', href: '/#pricing', isHash: true, section: 'pricing' },
     { name: 'Contact', href: '/#footer', isHash: true, section: 'footer' },
   ];

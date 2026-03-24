@@ -1,9 +1,16 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ChevronRight, Sparkles, Phone } from 'lucide-react';
+import { ChevronRight, Sparkles, Phone, ChevronDown } from 'lucide-react';
 
 const Hero: React.FC = () => {
+  const scrollToNext = () => {
+    const nextSection = document.getElementById('services');
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 md:pt-48 pb-24 bg-[#355271]">
       <div className="container mx-auto px-6 relative z-20 text-center">
@@ -53,6 +60,18 @@ const Hero: React.FC = () => {
           </div>
         </motion.div>
       </div>
+
+      {/* Scroll Down Indicator */}
+      <motion.div 
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 1, repeat: Infinity, repeatType: 'reverse' }}
+        onClick={scrollToNext}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 cursor-pointer z-30 flex flex-col items-center text-white/40 hover:text-white transition-colors"
+      >
+        <span className="text-[9px] font-black uppercase tracking-[0.4em] mb-2">Scroll</span>
+        <ChevronDown size={24} />
+      </motion.div>
       
       {/* Dynamic Background Accents */}
       <div className="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-white/5 rounded-full blur-[120px] -z-10 animate-pulse" />

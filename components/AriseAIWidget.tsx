@@ -55,29 +55,29 @@ const AriseAIWidget: React.FC = () => {
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="absolute bottom-24 right-0 w-80 md:w-96 glass-panel border border-white/40 rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col h-[600px]"
+            className="absolute bottom-24 right-0 w-72 md:w-80 glass-panel border border-white/40 rounded-[2rem] shadow-2xl overflow-hidden flex flex-col h-[480px]"
           >
             {/* Header */}
-            <div className="p-8 border-b border-gray-100 bg-white/40 flex items-center justify-between">
-              <div className="flex items-center space-x-4">
-                <div className="w-14 h-14 bg-[#357FA6] rounded-2xl flex items-center justify-center shadow-lg shadow-blue-500/20">
-                  <Bot size={28} className="text-white" />
+            <div className="p-6 border-b border-gray-100 bg-white/40 flex items-center justify-between">
+              <div className="flex items-center space-x-3">
+                <div className="w-12 h-12 bg-[#357FA6] rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20">
+                  <Bot size={24} className="text-white" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-black text-gray-900 uppercase tracking-[0.2em]">Arise AI Elite</h3>
+                  <h3 className="text-[11px] font-black text-gray-900 uppercase tracking-[0.2em]">Arise AI Elite</h3>
                   <div className="flex items-center space-x-2 mt-1">
-                    <div className="w-2 h-2 bg-green-500 rounded-full" />
-                    <span className="text-xs text-gray-400 uppercase font-bold tracking-widest">Cross Africa Active</span>
+                    <div className="w-1.5 h-1.5 bg-green-500 rounded-full" />
+                    <span className="text-[9px] text-gray-400 uppercase font-bold tracking-widest">Active</span>
                   </div>
                 </div>
               </div>
               <button onClick={() => setIsOpen(false)} className="text-gray-300 hover:text-gray-900 transition-colors">
-                <X size={24} />
+                <X size={20} />
               </button>
             </div>
 
             {/* Chat Area */}
-            <div className="flex-grow p-8 overflow-y-auto space-y-6 scrollbar-hide bg-white/10">
+            <div className="flex-grow p-6 overflow-y-auto space-y-4 scrollbar-hide bg-white/10">
               {messages.map((m, i) => (
                 <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                   <div className={`max-w-[85%] p-5 rounded-3xl text-sm leading-relaxed ${
@@ -101,7 +101,7 @@ const AriseAIWidget: React.FC = () => {
             </div>
 
             {/* Input Area */}
-            <div className="p-8 bg-white/40 border-t border-gray-50">
+            <div className="p-6 bg-white/40 border-t border-gray-50">
               <div className="relative group">
                 <input 
                   type="text"
@@ -109,14 +109,14 @@ const AriseAIWidget: React.FC = () => {
                   onChange={(e) => setInput(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && handleChat()}
                   placeholder="Ask Arise AI..."
-                  className="w-full bg-white border border-gray-100 rounded-2xl px-6 py-5 text-sm text-gray-900 placeholder:text-gray-300 focus:outline-none focus:border-[#357FA6] transition-all shadow-sm group-hover:shadow-md"
+                  className="w-full bg-white border border-gray-100 rounded-xl px-5 py-4 text-[12px] text-gray-900 placeholder:text-gray-300 focus:outline-none focus:border-[#357FA6] transition-all shadow-sm group-hover:shadow-md"
                 />
                 <button 
                   onClick={handleChat}
                   disabled={loading}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 w-12 h-12 bg-[#357FA6] rounded-xl flex items-center justify-center text-white hover:bg-gray-900 transition-all shadow-md"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-[#357FA6] rounded-lg flex items-center justify-center text-white hover:bg-gray-900 transition-all shadow-md"
                 >
-                  <Send size={18} />
+                  <Send size={16} />
                 </button>
               </div>
             </div>
@@ -128,12 +128,12 @@ const AriseAIWidget: React.FC = () => {
         whileHover={{ scale: 1.1, rotate: 5 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="w-20 h-20 bg-white border border-gray-100 shadow-2xl rounded-2xl flex items-center justify-center text-[#357FA6] relative group overflow-hidden"
+        className="w-16 h-16 bg-white border border-gray-100 shadow-2xl rounded-2xl flex items-center justify-center text-[#357FA6] relative group overflow-hidden"
       >
         <div className="absolute inset-0 bg-blue-50 opacity-0 group-hover:opacity-100 transition-opacity" />
-        {isOpen ? <X size={32} /> : <MessageSquare size={32} className="relative z-10" />}
+        {isOpen ? <X size={24} /> : <MessageSquare size={24} className="relative z-10" />}
         {!isOpen && (
-          <div className="absolute top-4 right-4 w-4 h-4 bg-[#CE5826] rounded-full border-2 border-white z-20" />
+          <div className="absolute top-3 right-3 w-3 h-3 bg-[#CE5826] rounded-full border-2 border-white z-20" />
         )}
       </motion.button>
     </div>
