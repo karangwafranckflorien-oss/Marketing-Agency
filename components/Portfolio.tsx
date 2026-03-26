@@ -107,13 +107,6 @@ const generatePortfolioData = (): PortfolioItem[] => {
     },
     {
       id: 'recent-3',
-      category: 'Companies',
-      type: 'image',
-      src: 'https://i.imgur.com/nfL2n8m.png',
-      professionalLabel: 'GOSPEL MUSIC THUMBNAIL DESIGN'
-    },
-    {
-      id: 'recent-4',
       category: 'Any Business',
       type: 'image',
       src: 'https://i.imgur.com/nfL2n8m.png',
